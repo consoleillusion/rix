@@ -2,7 +2,7 @@
 
 > **Status:** Design
 > **Last updated:** 2026-11-18
-> **See also:** [Principles](principles.md), [Architecture](architecture.md), [Installer and first boot](installer-and-first-boot.md)
+> **See also:** [Principles](principles), [Architecture](architecture), [Installer and first boot](installer-and-first-boot)
 
 Rix is for people who want a computer that simply works: friends and family,
 privacy-aware individuals and small groups. The benchmark is a modern Windows
@@ -101,8 +101,8 @@ Requirements:
 - **Import/export.** Settings can be exported as a Nix module for version
   control, matching the flake-based system design.
 
-See [`architecture.md`](architecture.md) for the stack and
-[`security-defaults.md`](security-defaults.md) for what is configurable.
+See [`architecture`](architecture) for the stack and
+[`security-defaults`](security-defaults) for what is configurable.
 
 ## Writing and tone
 
@@ -112,7 +112,7 @@ See [`architecture.md`](architecture.md) for the stack and
 - Explain security in terms of the user's outcome: "Only people in Friends can
   open this", not "E2EE with recipient-bound wrapping keys".
 - Placeholders (example.org URLs, unfinished artwork) must not ship in a
-  release; they are tracked in [`open-questions.md`](open-questions.md).
+  release; they are tracked in [`open-questions`](open-questions).
 
 ## Accessibility and inclusion
 
@@ -128,5 +128,5 @@ The current live ISO uses Calamares with Rix branding. Icicle
 (<https://github.com/snowfallorg/icicle>) has similar goals and may be a better
 long-term installer, but it must be evaluated against our requirements before
 replacing Calamares. The decision is tracked in
-[`open-questions.md`](open-questions.md). Installation flow details are
-in [`installer-and-first-boot.md`](installer-and-first-boot.md).
+[`open-questions`](open-questions). Installation flow details are
+in [`installer-and-first-boot`](installer-and-first-boot).

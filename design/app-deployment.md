@@ -2,7 +2,7 @@
 
 > **Status:** Design
 > **Last updated:** 2026-11-18
-> **See also:** [Architecture](architecture.md), [Security defaults](security-defaults.md), [Contacts](contacts.md), [DuckNet](ducknet.md)
+> **See also:** [Architecture](architecture), [Security defaults](security-defaults), [Contacts](contacts), [DuckNet](ducknet)
 
 Rix lets users deploy and access applications through a local software
 interface. Applications can be assigned to groups so their services are
@@ -48,10 +48,10 @@ Each app in the catalogue has a versioned descriptor:
   volume is writable.
 - **Scoped secrets.** Credentials are injected at runtime from DuckPAM
   ducklings, never baked into images or stored in the Nix store
-  ([`duckpam.md`](duckpam.md)).
+  ([`duckpam`](duckpam)).
 - **Network policy.** Apps listen only on their group's DuckNet address unless
   explicitly allowed; no internet exposure by default
-  ([`ducknet.md`](ducknet.md)).
+  ([`ducknet`](ducknet)).
 - **Signed sources.** Image digests pinned in the descriptor; Nix inputs pinned
   by `flake.lock`.
 - **Resource limits.** Quotas prevent a single app from starving the desktop.
@@ -79,11 +79,11 @@ Assigning an app to a group means:
 - its service is reachable only from peers in that group via DuckNet;
 - group admins can see and manage its status;
 - sharing its output files uses the group's file-sharing policy
-  ([`file-sharing.md`](file-sharing.md));
+  ([`file-sharing`](file-sharing));
 - removing the group revokes access and stops the service if configured.
 
 Example: a Jellyfin server for Friends, a private Git server for Work, or a
-shared document app for both — as in [`../contacts.md`](../contacts.md).
+shared document app for both — as in [`../contacts`](../contacts).
 
 ## Catalogue governance
 
@@ -99,7 +99,7 @@ shared document app for both — as in [`../contacts.md`](../contacts.md).
 Containers can expose output modules — network traffic or plain streams of
 data — that handlers can attach to, potentially integrated into the window
 manager. A Hyprland-like permission model could govern screengrab or inputgrab
-per app. This is noted in [`../contacts.md`](../contacts.md) and is
+per app. This is noted in [`../contacts`](../contacts) and is
 **not** part of the first pass; it needs its own design doc before work starts.
 
 ## Integration summary
@@ -114,6 +114,6 @@ per app. This is noted in [`../contacts.md`](../contacts.md) and is
 
 ## Open items
 
-Tracked in [`open-questions.md`](open-questions.md): VM and Kubernetes
+Tracked in [`open-questions`](open-questions): VM and Kubernetes
 scope, local build of custom Nix expressions, and resource policy on low-end
 hardware.

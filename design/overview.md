@@ -2,7 +2,7 @@
 
 > **Status:** Mixed
 > **Last updated:** 2026-11-18
-> **See also:** [Principles](principles.md), [Architecture](architecture.md), [User experience](user-experience.md)
+> **See also:** [Principles](principles), [Architecture](architecture), [User experience](user-experience)
 
 ## What Rix is
 
@@ -47,17 +47,17 @@ NixOS is an excellent substrate, not a finished desktop product. Rix must add:
 
 - **Curation and safe defaults.** NixOS is permissive by design; Rix chooses
   secure, usable defaults and documents the escape hatches
-  ([`security-defaults.md`](security-defaults.md)).
+  ([`security-defaults`](security-defaults)).
 - **A GUI configuration frontend.** Users should never need to write Nix to
   change a setting, install an app or manage a group
-  ([`user-experience.md`](user-experience.md)).
+  ([`user-experience`](user-experience)).
 - **A smooth, Windows-familiar experience.** Plasma 6, predictable settings,
   human-readable errors, no surprise terminals — explicitly not the "rough
   edges" of a minimal Arch or bare NixOS install.
 - **Identity and relationship services.** DuckPAM, Contacts, DuckNet, Iroh
   file sharing and app deployment are Rix components, not NixOS features.
 - **Release and support policy.** A stable channel, tested updates and a
-  defined support window ([`release-and-support.md`](release-and-support.md)).
+  defined support window ([`release-and-support`](release-and-support)).
 
 ## Product shape
 
@@ -89,10 +89,10 @@ Installed Rix  NixOS generations ──> GUI Settings ──> user intent ──
 
 - Being a general-purpose server platform or a Kubernetes distribution first.
 - Absolute immunity to compromise. We design against the threats in
-  [`threat-model.md`](threat-model.md); we do not claim perfection.
+  [`threat-model`](threat-model); we do not claim perfection.
 - Replacing NixOS's package model or forking the Nix language.
 - Shipping a Tvix-based installer at this stage; see
-  [`../docs/tvix.md`](../docs/tvix.md).
+  [`../docs/tvix`](../docs/tvix).
 
 ## Current implementation snapshot
 
@@ -104,4 +104,4 @@ Installed Rix  NixOS generations ──> GUI Settings ──> user intent ──
 | Live hostname, ISO label, MOTD | Implemented | [`../modules/live.nix`](../modules/live.nix) |
 | Calamares branding and chooser | Implemented | [`../modules/calamares.nix`](../modules/calamares.nix) |
 | Installed-system branding and flake | Implemented via patch | [`../calamares/patches/installed-config-branding.patch`](../calamares/patches/installed-config-branding.patch) |
-| GUI settings, Contacts, DuckPAM, DuckNet, Iroh | Designed here | [`principles.md`](principles.md) onward |
+| GUI settings, Contacts, DuckPAM, DuckNet, Iroh | Designed here | [`principles`](principles) onward |
