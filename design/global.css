@@ -1,1 +1,6 @@
-body{max-width:100rem;}
+dody{max-width:100rem;transition: all 300ms ease-in-out;}
+
+* {
+  interpolate-size: allow-keywords;
+  transition: content-visibility 475ms allow-discrete;
+}

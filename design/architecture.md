@@ -10,7 +10,7 @@ in this repository; everything else is the target design.
 
 ## Layer view
 
-```mermaid
+:::mermaid
 flowchart TB
     subgraph Build["Build time (Current)"]
         F["flake.nix + flake.lock"] --> C["nixosConfigurations.rix-live-*"]
@@ -39,7 +39,7 @@ flowchart TB
         CONT --> FILE["File sharing (Iroh)"]
         CONT --> APP["Software centre<br/>Nix modules + containers"]
     end
-```
+:::
 
 ## Build and live image (Current)
 
@@ -91,16 +91,20 @@ flakes stay consistent between the live and installed environments.
 
 ## Configuration stack (Design)
 
-```
-User intent (GUI / CLI)
-        │  validated, typed
-        ▼
-Rix settings model  ──►  generated Nix modules  ──►  nixos-rebuild (atomic)
-        │                        │                        │
-        └─ preview/diff ◄────────┘                        └─ boot entry + rollback
-```
+:::mermaid
+flowchart LR
+    A["User intent<br/>(GUI / CLI)"]
+    B["Rix settings model"]
+    C["Generated Nix modules"]
+    D["nixos-rebuild<br/>(Atomic)"]
+    E["Boot entry + rollback"]
 
-Rules for this stack:
+    A -->|Validated, typed| B
+    B --> C
+    C --> D
+    D --> E
+    B -->|Preview / diff| C
+:::
 
 1. **No hidden state.** Each GUI setting maps to a documented Nix option in a
    Rix module. The "advanced" view shows the generated snippet.
