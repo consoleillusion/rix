@@ -1,0 +1,55 @@
+# Rix branding for Calamares. Strings here are what the installer shows.
+# Keep the product name in sync with `system.nixos.distroName` in
+# modules/common.nix.
+---
+componentName: rix
+
+### WELCOME / OVERALL WORDING
+welcomeStyleCalamares: false
+welcomeExpandingLogo: true
+
+### WINDOW
+windowExpanding: normal
+windowSize: 880px,560px
+windowPlacement: center
+
+### PANELS
+sidebar: widget
+navigation: widget
+
+### STRINGS
+strings:
+    productName: "Rix"
+    shortProductName: "Rix"
+    version: "26.05"
+    shortVersion: "26.05"
+    versionedName: "Rix 26.05"
+    shortVersionedName: "Rix"
+    bootloaderEntryName: "Rix"
+    # TODO: point these at real Rix sites.
+    productUrl: "https://example.org/rix"
+    supportUrl: "https://example.org/rix/support"
+    knownIssuesUrl: "https://example.org/rix/issues"
+    releaseNotesUrl: "https://example.org/rix/releases"
+    donateUrl: ""
+
+### IMAGES
+# Paths are relative to this branding directory. Images are scaled by
+# Calamares; SVGs are fine.
+images:
+    productIcon: "rix-mark.svg"
+    productLogo: "rix-mark.svg"
+    productWelcome: "rix-wordmark.svg"
+    # productBanner: "rix-banner.svg"
+    # productWallpaper: "wallpaper.png"
+
+### COLORS
+style:
+    SidebarBackground: "#1B1035"
+    SidebarText: "#F4F1FF"
+    SidebarTextCurrent: "#1B1035"
+    SidebarBackgroundCurrent: "#B69CFF"
+
+### SLIDESHOW
+slideshow: "show.qml"
+slideshowAPI: 2
