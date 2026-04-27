@@ -2,7 +2,7 @@
 
 > **Status:** Design
 > **Last updated:** 2026-11-18
-> **See also:** [Contacts](09-contacts.md), [DuckNet](10-ducknet.md), [Architecture](02-architecture.md), [../contacts.md](../contacts.md)
+> **See also:** [Contacts](contacts.md), [DuckNet](ducknet.md), [Architecture](architecture.md), [../contacts.md](../contacts.md)
 
 Rix file sharing is built into the file manager. Files can be shared with an
 individual or a group, replicated peer-to-peer with Iroh, stored on a group
@@ -40,7 +40,7 @@ storage copy for offline members.
 | `expiry` | Optional automatic revocation time. |
 
 Content keys are wrapped to recipient or group keys from Contacts
-([`09-contacts.md`](09-contacts.md)). Revocation expires tickets and re-wraps
+([`contacts.md`](contacts.md)). Revocation expires tickets and re-wraps
 keys for remaining recipients where feasible.
 
 ## Pinning and retention
@@ -78,12 +78,12 @@ as described in [`../contacts.md`](../contacts.md).
 3. Pick a mode; direct share sets an expiry; group storage picks a folder; P2P
    sets pinning preference.
 4. Recipient gets a notification through their configured channel
-   ([`09-contacts.md`](09-contacts.md)).
+   ([`contacts.md`](contacts.md)).
 5. Incoming shares appear in a dedicated view with sender identity and
    verification status.
 6. "Shared with" pane shows recipients, copy count, expiry and revoke button.
 
-Language follows [`06-user-experience.md`](06-user-experience.md): "Only
+Language follows [`user-experience.md`](user-experience.md): "Only
 members of Friends can open this", with advanced details one click away.
 
 ## Offline and failure behaviour
@@ -107,6 +107,6 @@ members of Friends can open this", with advanced details one click away.
 
 ## Open items
 
-Tracked in [`15-open-questions.md`](15-open-questions.md): large-file behaviour,
+Tracked in [`open-questions.md`](open-questions.md): large-file behaviour,
 mobile peers, deduplication across groups, and whether to ship a default group
 storage server package.

@@ -2,12 +2,12 @@
 
 > **Status:** Design
 > **Last updated:** 2026-11-18
-> **See also:** [Security defaults](04-security-defaults.md), [Architecture](02-architecture.md), [DuckPAM](08-duckpam.md)
+> **See also:** [Security defaults](security-defaults.md), [Architecture](architecture.md), [DuckPAM](duckpam.md)
 
 This document defines what Rix protects, from whom, and with which mechanisms.
 It is the basis for the defaults in
-[`04-security-defaults.md`](04-security-defaults.md) and the app rules in
-[`12-app-deployment.md`](12-app-deployment.md).
+[`security-defaults.md`](security-defaults.md) and the app rules in
+[`app-deployment.md`](app-deployment.md).
 
 ## Assets
 
@@ -48,7 +48,7 @@ It is the basis for the defaults in
 
 ## Attack scenarios and mitigations
 
-### 1. Malicious application reads the user's documents
+### Malicious application reads the user's documents
 
 **Attack.** A downloaded app scans the home directory and exfiltrates files.
 
@@ -56,12 +56,12 @@ It is the basis for the defaults in
 file access goes through a portal that requires an explicit user pick; the
 firewall limits outbound traffic where policy allows; secrets are delivered
 per-app at login rather than sitting in a readable file. See
-[`12-app-deployment.md`](12-app-deployment.md).
+[`app-deployment.md`](app-deployment.md).
 
 **Residual risk.** An app the user explicitly grants broad access to can still
 read those files. The UI must make the grant visible and revocable.
 
-### 2. Privilege escalation
+### Privilege escalation
 
 **Attack.** An app exploits a setuid helper or a misconfigured service to gain
 root and rewrite system files.
@@ -71,7 +71,7 @@ unprivileged with systemd sandboxing; Polkit governs administrative actions;
 no passwordless `sudo` for the desktop user; unexpected store changes are
 detectable because rebuilds are reproducible from the flake.
 
-### 3. Network eavesdropping or MITM
+### Network eavesdropping or MITM
 
 **Attack.** A hostile Wi-Fi network intercepts traffic or redirects a software
 catalogue request.
@@ -79,46 +79,46 @@ catalogue request.
 **Mitigation.** Group traffic travels inside WireGuard; application traffic
 uses TLS with a trusted CA set; downloads are verified by lockfile hashes; the
 host firewall is on by default; a kill-switch option prevents traffic escaping
-the mesh when policy requires it. See [`10-ducknet.md`](10-ducknet.md).
+the mesh when policy requires it. See [`ducknet.md`](ducknet.md).
 
 **Residual risk.** A compromised CA or a user-ignored certificate warning can
 still defeat TLS; the UI must not train users to click through warnings.
 
-### 4. Stolen or lost device
+### Stolen or lost device
 
 **Attack.** An attacker boots or removes the disk from a powered-off laptop.
 
 **Mitigation.** LUKS full-disk encryption with a passphrase and a recovery key
 is the default; TPM2 auto-unlock is offered only when available and still
 requires a recovery key; screen lock and auto-lock on suspend limit exposure of
-an unlocked session. See [`04-security-defaults.md`](04-security-defaults.md).
+an unlocked session. See [`security-defaults.md`](security-defaults.md).
 
 **Residual risk.** A device stolen while unlocked is exposed until it locks;
 cold-boot and hardware attacks are out of scope.
 
-### 5. Supply-chain compromise
+### Supply-chain compromise
 
 **Attack.** A malicious package or flake input enters the ISO or an update.
 
 **Mitigation.** Inputs pinned with `narHash` in `flake.lock`; isolated builds;
 patches applied explicitly and failing loudly; unfree software opt-in; CI
 smoke tests and reproducible-build checks; signed release artifacts (planned).
-See [`13-release-and-support.md`](13-release-and-support.md).
+See [`release-and-support.md`](release-and-support.md).
 
 **Residual risk.** A compromised upstream that produces a malicious build
 which passes tests cannot be fully ruled out; defense is layered with sandboxing
 so one bad package is not automatically root.
 
-### 6. Malicious update or broken rebuild
+### Malicious update or broken rebuild
 
 **Attack.** An update bricks the machine or installs a backdoor.
 
 **Mitigation.** Updates are atomic NixOS generations; the previous generation
 stays bootable; automatic updates build first and apply at boot; health checks
 can roll back a failed boot; the GUI exposes a one-click rollback. See
-[`05-stability-and-updates.md`](05-stability-and-updates.md).
+[`stability-and-updates.md`](stability-and-updates.md).
 
-### 7. Service operator learns the social graph
+### Service operator learns the social graph
 
 **Attack.** The operator of a controller or relay correlates peer IPs and
 membership to map relationships.
@@ -126,13 +126,13 @@ membership to map relationships.
 **Mitigation.** Controller is user- or group-self-hosted by default; file
 contents are end-to-end encrypted via Iroh; identifiers are public keys rather
 than real names; metadata minimisation is a design requirement in Contacts and
-DuckNet. See [`09-contacts.md`](09-contacts.md) and
-[`10-ducknet.md`](10-ducknet.md).
+DuckNet. See [`contacts.md`](contacts.md) and
+[`ducknet.md`](ducknet.md).
 
 **Residual risk.** Timing and connection metadata can remain visible to a
 network observer; future work includes padding and relay mixes.
 
-### 8. Malicious group member
+### Malicious group member
 
 **Attack.** A member floods a share, deploys a hostile app, or tries to revoke
 others illegitimately.
@@ -141,7 +141,7 @@ others illegitimately.
 changes, per-app resource limits, quotas, audit log visible to admins, and
 revocation that propagates to network keys and share tickets.
 
-### 9. Lost password or device
+### Lost password or device
 
 **Attack.** Not an adversary, but a failure mode with security consequences:
 users who fear lockout reuse weak passwords or write secrets insecurely.
@@ -149,7 +149,7 @@ users who fear lockout reuse weak passwords or write secrets insecurely.
 **Mitigation.** Recovery codes are generated by default and stored offline;
 trusted-contacts threshold recovery is opt-in; the GUI walks the user through
 both at first login; changing a password re-encrypts the key without changing
-the identity. See [`08-duckpam.md`](08-duckpam.md).
+the identity. See [`duckpam.md`](duckpam.md).
 
 ## Explicitly out of scope
 
@@ -162,7 +162,7 @@ the identity. See [`08-duckpam.md`](08-duckpam.md).
 
 ## Design consequences
 
-1. Every default in [`04-security-defaults.md`](04-security-defaults.md) must
+1. Every default in [`security-defaults.md`](security-defaults.md) must
    map to one or more scenarios above.
 2. New features must add a row to the scenarios table when they introduce a
    new trust boundary.

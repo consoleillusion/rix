@@ -2,7 +2,7 @@
 
 > **Status:** Mixed
 > **Last updated:** 2026-11-18
-> **See also:** [Overview](00-overview.md), [Threat model](03-threat-model.md), [Installer and first boot](07-installer-and-first-boot.md)
+> **See also:** [Overview](overview.md), [Threat model](threat-model.md), [Installer and first boot](installer-and-first-boot.md)
 
 This document describes the layers of Rix, from the flake that builds the ISO
 to the GUI settings layer and the Rix services. "Current" markers refer to code
@@ -64,7 +64,7 @@ flowchart TB
 The patch is deliberately small and context-sensitive: a nixpkgs update that
 changes `main.py` fails the build at the `patch` step. That is intentional — a
 silent no-op would be worse. See
-[`13-release-and-support.md`](13-release-and-support.md) for the release-time
+[`release-and-support.md`](release-and-support.md) for the release-time
 procedure.
 
 ## Installed system (Current + Design)
@@ -121,22 +121,22 @@ from it, group keys are wrapped to member public keys, and secrets needed by
 apps are delivered through the `ducklings` mechanism at login. Nothing secret
 is stored in the read-only `/nix/store`; secrets live in `/etc/duckshadow` and
 a protected user keyring. Full detail in
-[`08-duckpam.md`](08-duckpam.md).
+[`duckpam.md`](duckpam.md).
 
 ## Networking and data layer (Design)
 
 - **DuckNet** uses a user-controlled Netmaker controller to manage per-group
   WireGuard meshes. Traffic is end-to-end encrypted; the controller carries
-  membership metadata, not file contents. See [`10-ducknet.md`](10-ducknet.md).
+  membership metadata, not file contents. See [`ducknet.md`](ducknet.md).
 - **Contacts** is the source of truth for people, groups and membership; it
   drives network, file and app permissions. See
-  [`09-contacts.md`](09-contacts.md).
+  [`contacts.md`](contacts.md).
 - **File sharing** uses Iroh for peer-to-peer transfer and replication, with
   group storage as an optional server-backed mode. Pinning records how many
-  independent copies exist. See [`11-file-sharing.md`](11-file-sharing.md).
+  independent copies exist. See [`file-sharing.md`](file-sharing.md).
 - **App deployment** starts with declarative Nix modules and OCI containers,
   with scoped network access through DuckNet and secrets through DuckPAM. See
-  [`12-app-deployment.md`](12-app-deployment.md).
+  [`app-deployment.md`](app-deployment.md).
 
 ## Key invariants
 
@@ -154,7 +154,7 @@ These must hold across all layers:
 
 ## Trust boundaries
 
-The full adversary model lives in [`03-threat-model.md`](03-threat-model.md).
+The full adversary model lives in [`threat-model.md`](threat-model.md).
 The architectural boundaries are: application ↔ OS, device ↔ network,
 user ↔ controller, user ↔ group members, and build inputs ↔ store. Each is
 enforced by a specific mechanism rather than by convention.

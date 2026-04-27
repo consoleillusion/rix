@@ -2,7 +2,7 @@
 
 > **Status:** Design
 > **Last updated:** 2026-11-18
-> **See also:** [Contacts](09-contacts.md), [Threat model](03-threat-model.md), [../contacts.md](../contacts.md)
+> **See also:** [Contacts](contacts.md), [Threat model](threat-model.md), [../contacts.md](../contacts.md)
 
 DuckNet is Rix's networking layer. It turns group membership into private,
 encrypted connectivity using Netmaker to manage WireGuard meshes. Users manage
@@ -60,7 +60,7 @@ Trust properties:
 - Administrative actions on the controller are audited and visible to group
   admins.
 
-See [`03-threat-model.md`](03-threat-model.md), scenarios 3 and 7.
+See [`threat-model.md`](threat-model.md), the network-eavesdropping and service-operator scenarios.
 
 ## Setup experience
 
@@ -71,7 +71,7 @@ See [`03-threat-model.md`](03-threat-model.md), scenarios 3 and 7.
    and an authentication token; the group fingerprint is shown for
    verification.
 4. Adding a contact to a group in Contacts automatically provisions their peer
-   ([`09-contacts.md`](09-contacts.md)).
+   ([`contacts.md`](contacts.md)).
 5. The GUI shows peers, address spaces, connection status and data usage.
 
 No command-line Netmaker usage should be required in the normal path.
@@ -118,6 +118,6 @@ No command-line Netmaker usage should be required in the normal path.
 
 ## Open items
 
-Tracked in [`15-open-questions.md`](15-open-questions.md): mobile/roaming
+Tracked in [`open-questions.md`](open-questions.md): mobile/roaming
 peers, IPv6, controller deployment packaging, and whether to support hosted
 controllers as a clearly-labelled convenience option.

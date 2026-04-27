@@ -2,7 +2,7 @@
 
 > **Status:** Mixed
 > **Last updated:** 2026-11-18
-> **See also:** [Architecture](02-architecture.md), [Security defaults](04-security-defaults.md), [User experience](06-user-experience.md)
+> **See also:** [Architecture](architecture.md), [Security defaults](security-defaults.md), [User experience](user-experience.md)
 
 ## Current state (implemented)
 
@@ -44,10 +44,10 @@ from the first rebuild. This is a known, documented limitation in
    installed systems.
 6. **Identity.** Generate the DuckPAM NTRU keypair, encrypt it with the
    password, and store it in `/etc/duckshadow`. This becomes the user's root
-   identity ([`08-duckpam.md`](08-duckpam.md)).
+   identity ([`duckpam.md`](duckpam.md)).
 7. **Network.** Join an existing group network or create a new one; configure
    the self-hosted Netmaker controller if needed
-   ([`10-ducknet.md`](10-ducknet.md)).
+   ([`ducknet.md`](ducknet.md)).
 8. **Desktop choice.** Plasma 6 default, minimal console alternative.
 9. **Install.** `nixos-install` writes `configuration.nix` and `flake.nix`
    with Rix branding; the first boot entry is created.
@@ -88,4 +88,4 @@ SnowflakeOS has related goals but slower development; Icicle
 experience. Replacing Calamares is **not** decided. Evaluate against: disk
 encryption setup, flake-aware config generation, aarch64 support, branding,
 maintenance effort, and the ability to reuse the Rix GUI settings components.
-The decision lives in [`15-open-questions.md`](15-open-questions.md).
+The decision lives in [`open-questions.md`](open-questions.md).
