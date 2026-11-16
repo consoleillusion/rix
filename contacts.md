@@ -1,6 +1,6 @@
 # Rix — Contacts
 
-Rix is a relationship-oriented computing environment that integrates identity management, networking, file sharing, communications and application deployment into a unified interface.
+Rix contacts are is a relationship-oriented computing environment that integrates identity management, networking, file sharing, communications and application deployment into a unified interface.
 
 Its central concept is that relationships between people and groups should drive how resources are shared, how networks are provisioned and how applications are made accessible. Rather than manually configuring networking, permissions, storage and services, users manage these relationships through an intuitive interface.
 
@@ -99,3 +99,19 @@ A contact is more than an address-book entry. Adding someone to a group can esta
 Likewise, a group is more than a collection of people. It becomes a logical environment with its own network, resources, services and access policies.
 
 The result is an integrated computing environment where users can establish relationships, share resources, deploy applications and manage infrastructure through a common interface, without having to interact directly with the complexity of the underlying systems.
+
+---
+
+Because you are sharing to those members only, you dont need to expose your home server to everyone to share with firends. everything is end to end encrypted beacuse everything is behind netmaker and everything is happening over a wireguard mesh. it allows for fully distributed social filesharing and social networking.
+
+An IP network is the same as a friends network. everyone will have multiple overlapping networks.
+
+---
+
+Containers can have output modules, for network traffic or plain steams of data that handlers could be assigned to that can be integrated directly into the window manager. Like in hyprland you can set up permissions for appso to screengrab, inputgrab and such.
+
+---
+
+Another potential advantage of putting all networks behind something like netmaker is that since all network activity is wireguard encrypted, im pretty sure you dont really need application level encryption nearly so much, or at all. For example, NFS is used as a network filesystem on linux, but wasnt built with security in mind, so its sorta old school. Its not considered very secure. But behind wireguard i think man-in-the-middle attacks cant really occur, so you can use old school protocols without worry, maybe even telnet would be fine.
+
+
