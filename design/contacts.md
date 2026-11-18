@@ -2,11 +2,11 @@
 
 > **Status:** Design
 > **Last updated:** 2026-11-18
-> **See also:** [Overview](../contacts.md), [DuckPAM](duckpam.md), [DuckNet](ducknet.md), [File sharing](file-sharing.md)
+> **See also:** [Overview](../contacts), [DuckPAM](duckpam), [DuckNet](ducknet), [File sharing](file-sharing)
 
 Contacts is Rix's relationship layer: people and groups are first-class
 entities that drive network, file and application access. It is the user-facing
-implementation of the vision in [`../contacts.md`](../contacts.md).
+implementation of the vision in [`../contacts`](../contacts).
 
 ## Goals
 
@@ -25,7 +25,7 @@ implementation of the vision in [`../contacts.md`](../contacts.md).
 | --- | --- |
 | `id` | Stable local identifier. |
 | `displayName` | User-chosen label. |
-| `publicKey` | DuckPAM root identity public key ([`duckpam.md`](duckpam.md)). |
+| `publicKey` | DuckPAM root identity public key ([`duckpam`](duckpam)). |
 | `fingerprint` | Human-checkable representation of the public key (safety number). |
 | `verification` | `unverified` / `verified` after out-of-band check. |
 | `devices` | Per-device public keys; individually revocable. |
@@ -40,7 +40,7 @@ implementation of the vision in [`../contacts.md`](../contacts.md).
 | `displayName` | e.g. "Friends", "Work". |
 | `members` | Contacts plus roles (`member`, `admin`). |
 | `identity` | Group key pair; group public key names the group to other services. |
-| `network` | DuckNet address space and policy ([`ducknet.md`](ducknet.md)). |
+| `network` | DuckNet address space and policy ([`ducknet`](ducknet)). |
 | `resources` | Shared folders, apps and services assigned to the group. |
 | `policies` | Permissions, quotas, expiry defaults, audit settings. |
 
@@ -80,11 +80,11 @@ DuckNet     File sharing     App deployment
 Consequences:
 
 - **Network:** joining a group provisions a WireGuard peer in that group's
-  network. Leaving removes it ([`ducknet.md`](ducknet.md)).
+  network. Leaving removes it ([`ducknet`](ducknet)).
 - **Files:** sharing with a group wraps content keys to group member keys;
-  revocation re-wraps and expires tickets ([`file-sharing.md`](file-sharing.md)).
+  revocation re-wraps and expires tickets ([`file-sharing`](file-sharing)).
 - **Apps:** deploying an app to a group makes its service reachable only by
-  group members through DuckNet ([`app-deployment.md`](app-deployment.md)).
+  group members through DuckNet ([`app-deployment`](app-deployment)).
 - **Notifications:** each contact's preferred channel selects how share
   links and invitations are delivered.
 
@@ -97,7 +97,7 @@ Consequences:
 - Clear status: online via group network, last seen, verified/unverified.
 - An audit view for admins: who joined, who was removed, who changed a policy.
 
-The UI wording follows [`user-experience.md`](user-experience.md):
+The UI wording follows [`user-experience`](user-experience):
 outcomes first, cryptography second.
 
 ## Privacy and trust model
@@ -117,13 +117,13 @@ outcomes first, cryptography second.
 | Failure | Response |
 | --- | --- |
 | Lost device key | Revoke that device from the contact record; other devices keep access. |
-| Lost root identity | Recovery codes or trusted contacts ([`duckpam.md`](duckpam.md)). |
+| Lost root identity | Recovery codes or trusted contacts ([`duckpam`](duckpam)). |
 | Malicious invite | Show fingerprint and group origin; require explicit acceptance. |
 | Controller offline | Cached membership continues to work; changes queue until reconnect. |
 | Conflicting membership updates | Signed, timestamped updates with conflict visible to admins. |
 
 ## Open items
 
-Tracked in [`open-questions.md`](open-questions.md): cross-device sync
+Tracked in [`open-questions`](open-questions): cross-device sync
 protocol, key-rotation UX, group recovery when all admins are lost, and
 optional vCard import/export.

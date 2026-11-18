@@ -2,7 +2,7 @@
 
 > **Status:** Mixed
 > **Last updated:** 2026-11-18
-> **See also:** [Threat model](threat-model.md), [Installer and first boot](installer-and-first-boot.md), [Stability and updates](stability-and-updates.md)
+> **See also:** [Threat model](threat-model), [Installer and first boot](installer-and-first-boot), [Stability and updates](stability-and-updates)
 
 This is the concrete list of out-of-box security settings for an installed Rix
 system. `Current` means the behaviour exists in this repository; `Design`
@@ -42,7 +42,7 @@ a recovery key alongside the passphrase and walks the user through storing it
 offline (print or write down). Where TPM2 is available it is used for
 transparent unlock, but the recovery key remains valid. Trusted-contacts
 recovery is deliberately **opt-in**, because it exposes the user's social graph
-to the recovery protocol; see [`duckpam.md`](duckpam.md).
+to the recovery protocol; see [`duckpam`](duckpam).
 
 ### Automatic updates without surprises
 
@@ -50,14 +50,14 @@ Updates are built and verified before they are applied. The default is to stage
 them for the next boot (`operation = "boot"` in NixOS terms) and notify the
 user, so an update never interrupts active work. A failed boot rolls back to
 the previous generation. Full policy in
-[`stability-and-updates.md`](stability-and-updates.md).
+[`stability-and-updates`](stability-and-updates).
 
 ### Application permissions
 
 The GUI presents permissions the way a phone does: camera, microphone, screen,
 files, network. Requests are scoped to an app identity and revocable. This is
 the main mechanism for the "malicious app" scenario in
-[`threat-model.md`](threat-model.md).
+[`threat-model`](threat-model).
 
 ### Remaining NixOS rough edges to hide
 

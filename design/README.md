@@ -8,10 +8,9 @@ It is deliberately separate from:
 
 | Document | Purpose |
 | --- | --- |
-| [`../README.md`](../README.md) | Build, run and customise the live ISO today. |
-| [`../contacts.md`](../contacts.md) | Raw product vision for Contacts and relationship-based computing. |
-| [`../duckpam.md`](../duckpam.md) | Raw technical notes for DuckPAM. |
-| [`../docs/tvix.md`](../docs/tvix.md) | Why Tvix is not on the installer critical path. |
+| [`./contacts_notes`](./contacts) | Raw product vision for Contacts and relationship-based computing. |
+| [`./duckpam_notes`](./duckpam) | Raw technical notes for DuckPAM. |
+| [`./tvix`](./tvix) | Why Tvix is not on the installer critical path. |
 
 Where a design document and a raw vision note disagree, **the design document
 wins**; update the vision note instead of leaving two conflicting statements.
@@ -21,7 +20,7 @@ wins**; update the vision note instead of leaving two conflicting statements.
 Primarily **implementers** — people adding modules, services and UI. Each doc is
 written so that the overview can be read by anyone, while the feature docs
 carry enough detail to guide implementation. A glossary is provided in
-[`glossary.md`](glossary.md).
+[`glossary`](glossary).
 
 ## North star
 
@@ -33,7 +32,7 @@ Rix is NixOS-based with flakes enabled by default. NixOS supplies the
 foundation (declarative configuration, atomic updates, rollback); Rix supplies
 the curation, the friendly GUI configuration layer, and the relationship,
 identity and sharing features that make it a complete desktop OS. See
-[`overview.md`](overview.md) and [`principles.md`](principles.md).
+[`overview`](overview) and [`principles`](principles).
 
 ## Status labels
 
@@ -53,28 +52,28 @@ Every document carries a small metadata block:
 
 `Design` is not the same as "unknown": it is a decision that has been made and
 should be implemented as written. Undecided items go in
-[`open-questions.md`](open-questions.md), not silently into a doc.
+[`open-questions`](open-questions), not silently into a doc.
 
 ## Document index
 
 | Document | Status | Covers |
 | --- | --- | --- |
-| [Overview](overview.md) | Mixed | What Rix is, what NixOS gives us, goals and non-goals. |
-| [Principles](principles.md) | Design | The rules that drive design decisions. |
-| [Architecture](architecture.md) | Mixed | Build, live image, installed system, configuration stack, layers. |
-| [Threat model](threat-model.md) | Design | Assets, adversaries, trust boundaries, attack scenarios. |
-| [Security defaults](security-defaults.md) | Mixed | Concrete default settings and their escape hatches. |
-| [Stability and updates](stability-and-updates.md) | Mixed | Atomic updates, automatic updates, rollback, testing. |
-| [User experience](user-experience.md) | Design | Everyday journeys, GUI configuration, no rough edges. |
-| [Installer and first boot](installer-and-first-boot.md) | Mixed | Live ISO, Calamares, encryption, identity setup, onboarding. |
-| [DuckPAM](duckpam.md) | Design | Password-unlocked post-quantum identity, ducklings, recovery. |
-| [Contacts](contacts.md) | Design | People, groups, identity, relationship-based access. |
-| [DuckNet](ducknet.md) | Design | Self-hosted Netmaker/WireGuard mesh networking. |
-| [File sharing](file-sharing.md) | Design | Iroh P2P, group storage, pinning, notifications. |
-| [App deployment](app-deployment.md) | Design | Nix modules and containers first; VMs and Kubernetes later. |
-| [Release and support](release-and-support.md) | Mixed | Versioning, channels, support window, security response. |
-| [Glossary](glossary.md) | Current | Terms used across the design docs. |
-| [Open questions](open-questions.md) | Design | Undecided items and decisions still to make. |
+| [Overview](overview) | Mixed | What Rix is, what NixOS gives us, goals and non-goals. |
+| [Principles](principles) | Design | The rules that drive design decisions. |
+| [Architecture](architecture) | Mixed | Build, live image, installed system, configuration stack, layers. |
+| [Threat model](threat-model) | Design | Assets, adversaries, trust boundaries, attack scenarios. |
+| [Security defaults](security-defaults) | Mixed | Concrete default settings and their escape hatches. |
+| [Stability and updates](stability-and-updates) | Mixed | Atomic updates, automatic updates, rollback, testing. |
+| [User experience](user-experience) | Design | Everyday journeys, GUI configuration, no rough edges. |
+| [Installer and first boot](installer-and-first-boot) | Mixed | Live ISO, Calamares, encryption, identity setup, onboarding. |
+| [DuckPAM](duckpam) | Design | Password-unlocked post-quantum identity, ducklings, recovery. |
+| [Contacts](contacts) | Design | People, groups, identity, relationship-based access. |
+| [DuckNet](ducknet) | Design | Self-hosted Netmaker/WireGuard mesh networking. |
+| [File sharing](file-sharing) | Design | Iroh P2P, group storage, pinning, notifications. |
+| [App deployment](app-deployment) | Design | Nix modules and containers first; VMs and Kubernetes later. |
+| [Release and support](release-and-support) | Mixed | Versioning, channels, support window, security response. |
+| [Glossary](glossary) | Current | Terms used across the design docs. |
+| [Open questions](open-questions) | Design | Undecided items and decisions still to make. |
 
 ## Maintenance rules
 
@@ -93,7 +92,7 @@ should be implemented as written. Undecided items go in
 - **Update the metadata block** when a doc changes, including its status.
 - **Resolve decisions in the right place.** New decisions update the owning
   doc and remove the corresponding entry from
-  [`open-questions.md`](open-questions.md).
+  [`open-questions`](open-questions).
 - **Keep claims honest.** Distinguish what exists now from what is planned;
   do not claim guarantees the implementation cannot yet provide.
 
@@ -104,13 +103,13 @@ the README. It is a suggestion, not a constraint: every doc stands alone and
 can be opened directly by name in whatever order the task requires. Changing
 the recommendation means editing this paragraph, not renaming files.
 
-[Overview](overview.md) → [Principles](principles.md) →
-[Architecture](architecture.md) → [Threat model](threat-model.md) →
-[Security defaults](security-defaults.md) →
-[Stability and updates](stability-and-updates.md) →
-[User experience](user-experience.md) →
-[Installer and first boot](installer-and-first-boot.md) →
-[DuckPAM](duckpam.md) → [Contacts](contacts.md) → [DuckNet](ducknet.md) →
-[File sharing](file-sharing.md) → [App deployment](app-deployment.md) →
-[Release and support](release-and-support.md) → [Glossary](glossary.md) →
-[Open questions](open-questions.md).
+[Overview](overview) → [Principles](principles) →
+[Architecture](architecture) → [Threat model](threat-model) →
+[Security defaults](security-defaults) →
+[Stability and updates](stability-and-updates) →
+[User experience](user-experience) →
+[Installer and first boot](installer-and-first-boot) →
+[DuckPAM](duckpam) → [Contacts](contacts) → [DuckNet](ducknet) →
+[File sharing](file-sharing) → [App deployment](app-deployment) →
+[Release and support](release-and-support) → [Glossary](glossary) →
+[Open questions](open-questions).
