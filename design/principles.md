@@ -2,13 +2,13 @@
 
 > **Status:** Design
 > **Last updated:** 2026-11-18
-> **See also:** [Overview](00-overview.md), [Security defaults](04-security-defaults.md), [User experience](06-user-experience.md)
+> **See also:** [Overview](overview.md), [Security defaults](security-defaults.md), [User experience](user-experience.md)
 
 These are the rules used to make decisions throughout the design. When two
 principles conflict, the earlier one wins unless a doc records an explicit
 exception.
 
-## 1. Secure by default, not opt-in
+## Secure by default, not opt-in
 
 **Meaning.** The out-of-box configuration is the safe one. Security features
 are enabled unless the user deliberately relaxes them, and the UI explains the
@@ -17,34 +17,34 @@ consequence before doing so.
 **Consequence.** Full-disk encryption, a host firewall, locked-down app
 sandboxing, automatic updates with rollback and recovery codes are defaults.
 Insecure options exist as explicit, labelled escape hatches
-([`04-security-defaults.md`](04-security-defaults.md)).
+([`security-defaults.md`](security-defaults.md)).
 
 **Anti-pattern.** A "hardened mode" that only power users discover.
 
-## 2. Stability over novelty
+## Stability over novelty
 
 **Meaning.** Rix tracks stable NixOS releases and prioritises a boring,
 predictable desktop over being first with new packages.
 
 **Consequence.** Pin inputs in `flake.lock`; automatic updates stay within a
 release; major upgrades are opt-in and documented
-([`05-stability-and-updates.md`](05-stability-and-updates.md),
-[`13-release-and-support.md`](13-release-and-support.md)).
+([`stability-and-updates.md`](stability-and-updates.md),
+[`release-and-support.md`](release-and-support.md)).
 
 **Anti-pattern.** Following `nixos-unstable` on users' production machines.
 
-## 3. No rough edges
+## No rough edges
 
 **Meaning.** An everyday user should never need to know the Nix language, edit
 a text file in `/etc`, or interpret a stack trace to accomplish a normal task.
 
 **Consequence.** A GUI settings frontend generates Nix underneath; errors are
 translated into plain language with a suggested next action; familiar Plasma 6
-conventions are preserved ([`06-user-experience.md`](06-user-experience.md)).
+conventions are preserved ([`user-experience.md`](user-experience.md)).
 
 **Anti-pattern.** "It's configurable" as an answer to a broken first-run flow.
 
-## 4. Atomic and reversible
+## Atomic and reversible
 
 **Meaning.** Changes to the system, apps and user data are applied as a unit
 and can be undone.
@@ -55,7 +55,7 @@ where practical.
 
 **Anti-pattern.** In-place mutation with no previous generation to return to.
 
-## 5. Least privilege and defence in depth
+## Least privilege and defence in depth
 
 **Meaning.** Every component gets only the access it needs, and multiple
 layers must fail before user data is exposed.
@@ -63,23 +63,23 @@ layers must fail before user data is exposed.
 **Consequence.** Per-app identities and sandboxes, Wayland portals instead of
 blanket screen/input access, read-only `/nix/store`, unprivileged services,
 firewall, WireGuard encryption, and scoped secrets delivered at login via
-DuckPAM ([`03-threat-model.md`](03-threat-model.md)).
+DuckPAM ([`threat-model.md`](threat-model.md)).
 
 **Anti-pattern.** One "admin" app with full disk access.
 
-## 6. The user controls the infrastructure
+## The user controls the infrastructure
 
 **Meaning.** Rix does not require a Rix-operated service for identity,
 networking or file sharing.
 
 **Consequence.** DuckNet's Netmaker controller is user- or group-self-hosted
-by default ([`10-ducknet.md`](10-ducknet.md)); no central directory is required
+by default ([`ducknet.md`](ducknet.md)); no central directory is required
 for Contacts; no telemetry is collected
-([`09-contacts.md`](09-contacts.md), [`04-security-defaults.md`](04-security-defaults.md)).
+([`contacts.md`](contacts.md), [`security-defaults.md`](security-defaults.md)).
 
 **Anti-pattern.** A mandatory cloud account that can revoke the user's system.
 
-## 7. Privacy is a default, not a preference panel
+## Privacy is a default, not a preference panel
 
 **Meaning.** Minimal data is collected, stored and transmitted in the first
 place; metadata is treated as sensitive.
@@ -90,40 +90,40 @@ analytics, no advertising identifiers, and careful logging defaults.
 **Anti-pattern.** "We don't sell your data" while retaining detailed social
 graphs.
 
-## 8. Relationships are the unit of access
+## Relationships are the unit of access
 
 **Meaning.** Membership in a group is what grants network, file and app access,
 rather than per-resource ACLs configured by hand.
 
 **Consequence.** Contacts and groups are first-class entities shared by the
 network, file and app layers; adding or removing someone updates all of them
-([`09-contacts.md`](09-contacts.md)).
+([`contacts.md`](contacts.md)).
 
 **Anti-pattern.** Separate, inconsistent permission systems in every app.
 
-## 9. Local-first and offline-capable
+## Local-first and offline-capable
 
 **Meaning.** Core functions work without a network connection; online services
 are enhancements.
 
 **Consequence.** Local identity and keys, local settings, queued shares,
 WireGuard peers that stay connected without the controller, Iroh replication
-when peers return ([`11-file-sharing.md`](11-file-sharing.md)).
+when peers return ([`file-sharing.md`](file-sharing.md)).
 
 **Anti-pattern.** A login screen that requires internet access.
 
-## 10. Recovery is part of security
+## Recovery is part of security
 
 **Meaning.** A security system that locks users out permanently is a usability
 failure and will be bypassed.
 
 **Consequence.** Recovery codes are generated by default at first login;
 trusted-contacts recovery is an opt-in alternative; both are configured in the
-GUI ([`08-duckpam.md`](08-duckpam.md)).
+GUI ([`duckpam.md`](duckpam.md)).
 
 **Anti-pattern.** "Write your 64-character key on paper" with no alternatives.
 
-## 11. Transparent underneath, guided on top
+## Transparent underneath, guided on top
 
 **Meaning.** The GUI is the primary interface, but it never traps advanced
 users.
@@ -134,12 +134,12 @@ does the same thing.
 
 **Anti-pattern.** A settings UI that writes opaque state nobody can inspect.
 
-## 12. Verify, don't assume
+## Verify, don't assume
 
 **Meaning.** Claims about security and stability are tested.
 
 **Consequence.** Flake evaluation checks, patch dry-runs, VM smoke tests, ISO
 builds, and (later) signed artifacts and reproducible-build checks in CI
-([`05-stability-and-updates.md`](05-stability-and-updates.md)).
+([`stability-and-updates.md`](stability-and-updates.md)).
 
 **Anti-pattern.** Shipping an ISO that was never booted.

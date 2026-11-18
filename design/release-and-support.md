@@ -2,7 +2,7 @@
 
 > **Status:** Mixed
 > **Last updated:** 2026-11-18
-> **See also:** [Stability and updates](05-stability-and-updates.md), [Overview](00-overview.md), [../flake.nix](../flake.nix)
+> **See also:** [Stability and updates](stability-and-updates.md), [Overview](overview.md), [../flake.nix](../flake.nix)
 
 This document defines how Rix versions, builds, tests, publishes and supports
 releases. It matches the current flake, which tracks `nixos-26.05`.
@@ -61,12 +61,12 @@ change is an atomic rebuild and is reversible.
 6. **Smoke test** boot (BIOS and UEFI), Plasma session, Calamares start,
    encryption unlock and first boot.
 7. **Verify defaults** from
-   [`04-security-defaults.md`](04-security-defaults.md).
+   [`security-defaults.md`](security-defaults.md).
 8. **Publish** ISOs with checksums; sign artifacts once signing is in place.
 9. **Announce** changes, known issues and the support window.
 
 Automated steps belong in CI; today they are manual — see
-[`15-open-questions.md`](15-open-questions.md).
+[`open-questions.md`](open-questions.md).
 
 ## Artifact integrity
 
@@ -80,13 +80,13 @@ Automated steps belong in CI; today they are manual — see
 
 1. Users and researchers can report issues privately through a documented
    security contact (to be published; tracked in
-   [`15-open-questions.md`](15-open-questions.md)).
+   [`open-questions.md`](open-questions.md)).
 2. Acknowledge within a short window, triage by severity, and keep the reporter
    informed.
 3. Fix in the affected supported releases, test, and publish an advisory with
    affected versions and mitigation.
 4. Critical system issues ship through the automatic update path; see
-   [`05-stability-and-updates.md`](05-stability-and-updates.md).
+   [`stability-and-updates.md`](stability-and-updates.md).
 
 ## Current gaps
 
@@ -97,5 +97,5 @@ Automated steps belong in CI; today they are manual — see
 - The initial install is channel-based; the generated flake takes over at the
   first rebuild.
 
-These are tracked in [`15-open-questions.md`](15-open-questions.md) and in the
+These are tracked in [`open-questions.md`](open-questions.md) and in the
 "Known limitations" section of [`../README.md`](../README.md).

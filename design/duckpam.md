@@ -2,7 +2,7 @@
 
 > **Status:** Design
 > **Last updated:** 2026-11-18
-> **See also:** [Threat model](03-threat-model.md), [Contacts](09-contacts.md), [Security defaults](04-security-defaults.md), [../duckpam.md](../duckpam.md)
+> **See also:** [Threat model](threat-model.md), [Contacts](contacts.md), [Security defaults](security-defaults.md), [../duckpam.md](../duckpam.md)
 
 DuckPAM is Rix's authentication and identity layer. It turns a password into a
 post-quantum cryptographic identity at login, and uses that identity to deliver
@@ -60,7 +60,7 @@ Rules:
   another.
 - Per-device keys allow revoking a lost device without rotating the identity.
 - Group keys are distributed by wrapping to member public keys
-  ([`09-contacts.md`](09-contacts.md)).
+  ([`contacts.md`](contacts.md)).
 
 ## Login flow
 
@@ -168,6 +168,6 @@ protects are unrecoverable; the installer and wizard must state this clearly.
 
 ## Open items
 
-Tracked in [`15-open-questions.md`](15-open-questions.md): exact KEM library
+Tracked in [`open-questions.md`](open-questions.md): exact KEM library
 choice and audit, hardware-token wrapping, rotation of a compromised root key,
 and cross-device identity sync details.

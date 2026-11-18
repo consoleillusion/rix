@@ -12,7 +12,7 @@ them in context.
 | Term | Meaning |
 | --- | --- |
 | **Rix** | The NixOS-based operating system described here. |
-| **Rix Settings** | The planned GUI frontend for configuring the system without writing Nix. See [`06-user-experience.md`](06-user-experience.md). |
+| **Rix Settings** | The planned GUI frontend for configuring the system without writing Nix. See [`user-experience.md`](user-experience.md). |
 | **Live image / ISO** | Bootable installer medium with a Plasma 6 live session. |
 | **Source of truth** | These design docs; code changes must keep them in sync. See [`README.md`](README.md). |
 
@@ -46,14 +46,14 @@ them in context.
 | **Portal** | A mediated interface (e.g. file chooser) that grants specific access instead of blanket access. |
 | **Polkit** | Framework for granting administrative actions to unprivileged users with authentication. |
 | **Firewall** | Stateful host firewall; enabled by default in the pinned nixpkgs. |
-| **Threat model** | The assets, adversaries and mitigations in [`03-threat-model.md`](03-threat-model.md). |
+| **Threat model** | The assets, adversaries and mitigations in [`threat-model.md`](threat-model.md). |
 | **Secure by default** | Security is on out of the box, with explicit, labelled escape hatches. |
 
 ## Identity and cryptography
 
 | Term | Meaning |
 | --- | --- |
-| **DuckPAM** | Rix's PAM module that unlocks a post-quantum identity with the login password. See [`08-duckpam.md`](08-duckpam.md). |
+| **DuckPAM** | Rix's PAM module that unlocks a post-quantum identity with the login password. See [`duckpam.md`](duckpam.md). |
 | **Duckling** | A configured command pair that receives a decapsulated secret at login. |
 | **NTRU** | A lattice-based post-quantum public-key cryptosystem; Rix uses NTRU-HPS-2048-509. |
 | **KEM** | Key Encapsulation Mechanism; used to establish shared secrets. |
@@ -70,7 +70,7 @@ them in context.
 
 | Term | Meaning |
 | --- | --- |
-| **DuckNet** | Rix's relationship-based networking layer built on Netmaker and WireGuard. See [`10-ducknet.md`](10-ducknet.md). |
+| **DuckNet** | Rix's relationship-based networking layer built on Netmaker and WireGuard. See [`ducknet.md`](ducknet.md). |
 | **WireGuard** | A modern VPN protocol providing encrypted point-to-point tunnels. |
 | **Netmaker** | Software used to manage WireGuard meshes; self-hosted by the user or group. |
 | **Controller** | The Netmaker control plane; distributes configuration, not content. |
