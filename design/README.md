@@ -78,27 +78,32 @@ should be implemented as written. Undecided items go in
 
 ## Maintenance rules
 
-1. **One concern per file.** If a doc starts covering two topics, split it.
-2. **Code and docs move together.** Changing a default, flow or data model
-   means updating the relevant doc in the same commit. Use a conventional
-   commit prefix such as `docs(design): clarify update rollback policy`; this
-   keeps each file's history readable.
-3. **Link, do not copy.** Point to source files (e.g. `../modules/common.nix`)
-   rather than duplicating code. Duplicate facts drift.
-4. **Update the metadata block** when a doc changes, including its status.
-5. **Resolve decisions in the right place.** New decisions update the owning
-   doc and remove the corresponding entry from
-   [`open-questions.md`](open-questions.md).
-6. **Keep claims honest.** Distinguish what exists now from what is planned;
-   do not claim guarantees the implementation cannot yet provide.
+- **Descriptive names only.** Never prefix filenames with numbers or sequence
+  markers. Numbers go stale as docs are added, reordered or removed; they force
+  readers into an order that rarely matches what they need; and they make a
+  file harder to find from a path or search. Name each file after its concern.
+- **One concern per file.** If a doc starts covering two topics, split it.
+- **Code and docs move together.** Changing a default, flow or data model
+  means updating the relevant doc in the same commit. Use a conventional
+  commit prefix such as `docs(design): clarify update rollback policy`; this
+  keeps each file's history readable.
+- **Link, do not copy.** Point to source files (e.g. `../modules/common.nix`)
+  rather than duplicating code. Duplicate facts drift.
+- **Update the metadata block** when a doc changes, including its status.
+- **Resolve decisions in the right place.** New decisions update the owning
+  doc and remove the corresponding entry from
+  [`open-questions.md`](open-questions.md).
+- **Keep claims honest.** Distinguish what exists now from what is planned;
+  do not claim guarantees the implementation cannot yet provide.
 
-## Suggested reading order
+## Getting started
 
-Implementers new to the project: [Overview](overview.md) →
-[Principles](principles.md) → [Architecture](architecture.md) →
-[Threat model](threat-model.md) → [Security defaults](security-defaults.md) →
-[Stability and updates](stability-and-updates.md) →
-[User experience](user-experience.md) →
-[Installer and first boot](installer-and-first-boot.md), then whichever feature
-docs they are working on, then [Release and support](release-and-support.md),
-[Glossary](glossary.md) and [Open questions](open-questions.md).
+Every doc stands alone; read them in whatever order the task requires. Useful
+entry points:
+
+- [Overview](overview.md) — what Rix is and why NixOS is the foundation.
+- [Architecture](architecture.md) — how the pieces fit together.
+- [Security defaults](security-defaults.md) — what is on by default.
+- [Threat model](threat-model.md) — what we defend against and why.
+- [User experience](user-experience.md) — the everyday user's perspective.
+- [Open questions](open-questions.md) — what has not been decided yet.
