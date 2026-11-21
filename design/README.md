@@ -79,9 +79,10 @@ should be implemented as written. Undecided items go in
 ## Maintenance rules
 
 - **Descriptive names only.** Never prefix filenames with numbers or sequence
-  markers. Numbers go stale as docs are added, reordered or removed; they force
-  readers into an order that rarely matches what they need; and they make a
-  file harder to find from a path or search. Name each file after its concern.
+  markers. Numbers go stale as docs are added, reordered or removed, and make a
+  file harder to find from a path or search. The recommended order lives in the
+  link sequence below, where it can be changed without renaming files or
+  breaking links. Name each file after its concern.
 - **One concern per file.** If a doc starts covering two topics, split it.
 - **Code and docs move together.** Changing a default, flow or data model
   means updating the relevant doc in the same commit. Use a conventional
@@ -96,14 +97,20 @@ should be implemented as written. Undecided items go in
 - **Keep claims honest.** Distinguish what exists now from what is planned;
   do not claim guarantees the implementation cannot yet provide.
 
-## Getting started
+## Suggested reading order
 
-Every doc stands alone; read them in whatever order the task requires. Useful
-entry points:
+This is the order we recommend, expressed purely as a sequence of links here in
+the README. It is a suggestion, not a constraint: every doc stands alone and
+can be opened directly by name in whatever order the task requires. Changing
+the recommendation means editing this paragraph, not renaming files.
 
-- [Overview](overview.md) — what Rix is and why NixOS is the foundation.
-- [Architecture](architecture.md) — how the pieces fit together.
-- [Security defaults](security-defaults.md) — what is on by default.
-- [Threat model](threat-model.md) — what we defend against and why.
-- [User experience](user-experience.md) — the everyday user's perspective.
-- [Open questions](open-questions.md) — what has not been decided yet.
+[Overview](overview.md) → [Principles](principles.md) →
+[Architecture](architecture.md) → [Threat model](threat-model.md) →
+[Security defaults](security-defaults.md) →
+[Stability and updates](stability-and-updates.md) →
+[User experience](user-experience.md) →
+[Installer and first boot](installer-and-first-boot.md) →
+[DuckPAM](duckpam.md) → [Contacts](contacts.md) → [DuckNet](ducknet.md) →
+[File sharing](file-sharing.md) → [App deployment](app-deployment.md) →
+[Release and support](release-and-support.md) → [Glossary](glossary.md) →
+[Open questions](open-questions.md).
