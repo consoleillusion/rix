@@ -1,4 +1,4 @@
-# Composition of the Rix live ISO.
+# Composition of the SekkOS live ISO.
 { modulesPath, ... }:
 {
   imports = [

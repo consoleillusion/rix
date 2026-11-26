@@ -1,6 +1,6 @@
-# Rix design documentation
+# SekkOS design documentation
 
-This directory is the **source of truth for Rix's design**. It describes the
+This directory is the **source of truth for SekkOS's design**. It describes the
 system we are building, why it is built that way, and which parts already exist
 in this repository.
 
@@ -28,8 +28,8 @@ carry enough detail to guide implementation. A glossary is provided in
 > usable security and stability by default, and no rough edges that demand Nix
 > or Arch expertise.
 
-Rix is NixOS-based with flakes enabled by default. NixOS supplies the
-foundation (declarative configuration, atomic updates, rollback); Rix supplies
+SekkOS is NixOS-based with flakes enabled by default. NixOS supplies the
+foundation (declarative configuration, atomic updates, rollback); SekkOS supplies
 the curation, the friendly GUI configuration layer, and the relationship,
 identity and sharing features that make it a complete desktop OS. See
 [`overview`](overview) and [`principles`](principles).
@@ -58,7 +58,7 @@ should be implemented as written. Undecided items go in
 
 | Document | Status | Covers |
 | --- | --- | --- |
-| [Overview](overview) | Mixed | What Rix is, what NixOS gives us, goals and non-goals. |
+| [Overview](overview) | Mixed | What SekkOS is, what NixOS gives us, goals and non-goals. |
 | [Principles](principles) | Design | The rules that drive design decisions. |
 | [Architecture](architecture) | Mixed | Build, live image, installed system, configuration stack, layers. |
 | [Threat model](threat-model) | Design | Assets, adversaries, trust boundaries, attack scenarios. |

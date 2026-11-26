@@ -4,7 +4,7 @@
 > **Last updated:** 2026-11-18
 > **See also:** [Architecture](architecture), [Security defaults](security-defaults), [Contacts](contacts), [DuckNet](ducknet)
 
-Rix lets users deploy and access applications through a local software
+SekkOS lets users deploy and access applications through a local software
 interface. Applications can be assigned to groups so their services are
 available only to the right participants. The first design pass covers
 declarative Nix modules and OCI containers; VMs and Kubernetes are later.
@@ -20,7 +20,7 @@ declarative Nix modules and OCI containers; VMs and Kubernetes are later.
 | Output modules (streams exposed to the window manager) | Later, exploratory |
 
 This ordering follows the agreed decision: get Nix + containers right before
-adding heavier orchestration. Kubernetes is not what makes Rix useful for
+adding heavier orchestration. Kubernetes is not what makes SekkOS useful for
 everyday users, and premature support would hurt stability.
 
 ## App descriptor
@@ -87,7 +87,7 @@ shared document app for both — as in [`../contacts`](../contacts).
 
 ## Catalogue governance
 
-- Descriptors are reviewed and signed by Rix maintainers.
+- Descriptors are reviewed and signed by SekkOS maintainers.
 - Every app has an owner and an update cadence; stale apps are marked.
 - Security updates are prioritised like system updates.
 - Users may add their own sources; the GUI labels them "unverified" and shows
@@ -110,7 +110,7 @@ per app. This is noted in [`../contacts`](../contacts) and is
 | DuckNet | Private service reachability. |
 | DuckPAM | Runtime secret injection. |
 | File sharing | App output and persistent data sharing. |
-| Rix Settings / Software Centre | Install, configure, update, rollback. |
+| SekkOS Settings / Software Centre | Install, configure, update, rollback. |
 
 ## Open items
 

@@ -4,7 +4,7 @@
 > **Last updated:** 2026-11-18
 > **See also:** [Contacts](contacts), [DuckNet](ducknet), [Architecture](architecture), [../contacts](../contacts)
 
-Rix file sharing is built into the file manager. Files can be shared with an
+SekkOS file sharing is built into the file manager. Files can be shared with an
 individual or a group, replicated peer-to-peer with Iroh, stored on a group
 server, or pinned so that multiple independent copies persist.
 
@@ -13,7 +13,7 @@ server, or pinned so that multiple independent copies persist.
 - Sharing is a native file-manager action, not a separate service.
 - End-to-end encryption for all sharing modes.
 - Group membership is the default permission model.
-- Local-first: direct transfers work without a Rix cloud.
+- Local-first: direct transfers work without a SekkOS cloud.
 - Users can see how many independent copies of a pinned file exist.
 
 ## Sharing modes
@@ -103,7 +103,7 @@ members of Friends can open this", with advanced details one click away.
 | Contacts | Recipient and group selection, identity verification, notifications. |
 | DuckNet | Peer connectivity and group storage reachability. |
 | App deployment | Apps may expose output streams/files as shares to their group. |
-| Rix Settings | Storage quotas, pin defaults, retention policy. |
+| SekkOS Settings | Storage quotas, pin defaults, retention policy. |
 
 ## Open items
 

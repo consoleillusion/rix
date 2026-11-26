@@ -1,6 +1,6 @@
-# Rix — Contacts
+# SekkOS — Contacts
 
-Rix contacts are is a relationship-oriented computing environment that integrates identity management, networking, file sharing, communications and application deployment into a unified interface.
+SekkOS contacts are is a relationship-oriented computing environment that integrates identity management, networking, file sharing, communications and application deployment into a unified interface.
 
 Its central concept is that relationships between people and groups should drive how resources are shared, how networks are provisioned and how applications are made accessible. Rather than manually configuring networking, permissions, storage and services, users manage these relationships through an intuitive interface.
 
@@ -31,7 +31,7 @@ Each contact can also have associated communication preferences, including a def
 
 ## DuckNet — Relationship-Based Networking
 
-Groups are integrated directly with DuckNet, Rix's networking infrastructure, which uses Netmaker to manage network connectivity.
+Groups are integrated directly with DuckNet, SekkOS's networking infrastructure, which uses Netmaker to manage network connectivity.
 
 Adding a contact to a group automatically provisions their network membership. Each group can have its own address space and network, allowing members to communicate with one another and access shared resources.
 
@@ -57,9 +57,9 @@ An important feature is file pinning. Participants can pin files they want to re
 
 ## Integrated Communications
 
-Rix integrates external communication services into its resource-sharing workflows.
+SekkOS integrates external communication services into its resource-sharing workflows.
 
-Each contact can have a preferred communication method, allowing Rix to select the appropriate delivery channel automatically.
+Each contact can have a preferred communication method, allowing SekkOS to select the appropriate delivery channel automatically.
 
 For example, sharing a document with someone might automatically send a Telegram message containing the download link, while another contact might receive the same notification through email.
 
@@ -67,7 +67,7 @@ This makes communications an integrated part of the system rather than a separat
 
 ## Application Deployment and Access
 
-Rix also provides a unified interface for deploying and accessing applications.
+SekkOS also provides a unified interface for deploying and accessing applications.
 
 Applications can be launched and managed through the local software interface, with deployment targeting different execution environments:
 
@@ -80,17 +80,17 @@ Applications can be assigned to designated groups, making their services availab
 
 For example, a user could deploy a Jellyfin server for their Friends group, a private Git server for Work, or a shared document management application for both.
 
-The underlying infrastructure handles deployment, networking and access configuration, while the user interacts with applications and groups through Rix.
+The underlying infrastructure handles deployment, networking and access configuration, while the user interacts with applications and groups through SekkOS.
 
 ## Cryptographic Foundations
 
-Alongside its networking and resource-management capabilities, Rix incorporates various cryptographic improvements, including DuckPAM.
+Alongside its networking and resource-management capabilities, SekkOS incorporates various cryptographic improvements, including DuckPAM.
 
 Security, identity and access control are fundamental to the system. The intention is to provide secure communication, controlled resource sharing and independently manageable access without requiring users to understand the underlying cryptographic or networking infrastructure.
 
 ## Overall Vision
 
-Rix aims to bring together several traditionally disconnected areas of computing into one coherent environment.
+SekkOS aims to bring together several traditionally disconnected areas of computing into one coherent environment.
 
 Its defining characteristic is the use of people, relationships and groups as the organising principle for computing resources.
 

@@ -31,7 +31,7 @@ Presentation {
             spacing: 28
 
             Image {
-                source: "rix-mark.svg"
+                source: "sekkos-mark.svg"
                 width: 140
                 height: 140
                 fillMode: Image.PreserveAspectFit
@@ -40,7 +40,7 @@ Presentation {
 
             Text {
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: qsTr("Installing Rix")
+                text: qsTr("Installing SekkOS")
                 color: "#F4F1FF"
                 font.pixelSize: 34
                 font.bold: true
@@ -100,7 +100,7 @@ Presentation {
                 anchors.horizontalCenter: parent.horizontalCenter
                 color: "#F4F1FF"
                 font.pixelSize: 16
-                text: qsTr("The whole system is described by configuration files. Edit them, rebuild, and Rix applies exactly what you asked for — on this machine or a thousand others.")
+                text: qsTr("The whole system is described by configuration files. Edit them, rebuild, and SekkOS applies exactly what you asked for — on this machine or a thousand others.")
             }
         }
     }

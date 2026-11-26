@@ -4,7 +4,7 @@
 > **Last updated:** 2026-11-18
 > **See also:** [Security defaults](security-defaults), [Architecture](architecture), [DuckPAM](duckpam)
 
-This document defines what Rix protects, from whom, and with which mechanisms.
+This document defines what SekkOS protects, from whom, and with which mechanisms.
 It is the basis for the defaults in
 [`security-defaults`](security-defaults) and the app rules in
 [`app-deployment`](app-deployment).
@@ -44,7 +44,7 @@ It is the basis for the defaults in
 | User ↔ group member | Invitations, shares, membership changes. | Public-key identity, out-of-band verification, cryptographic authorisation, revocation. |
 | Build inputs ↔ store | Flake inputs become system closures. | `flake.lock` hashes, isolated builds, patch dry-runs, CI verification, signed artifacts (future). |
 | Login ↔ keys | Password unlocks identity. | Argon2 + AES-256-GCM in DuckPAM; rate limiting; key material cleared where possible. |
-| Recovery ↔ identity | Recovery codes or trusted contacts rebuild access. | Single-use codes, threshold splitting, audited use, no Rix escrow. |
+| Recovery ↔ identity | Recovery codes or trusted contacts rebuild access. | Single-use codes, threshold splitting, audited use, no SekkOS escrow. |
 
 ## Attack scenarios and mitigations
 
@@ -157,7 +157,7 @@ the identity. See [`duckpam`](duckpam).
   GUI with full knowledge.
 - Physical hardware attacks (DMA, firmware replacement, cold-boot) beyond
   Secure Boot and TPM support when available.
-- Legal compulsion of a self-hosted operator outside Rix's control.
+- Legal compulsion of a self-hosted operator outside SekkOS's control.
 - Guaranteed anonymity against a global network observer.
 
 ## Design consequences

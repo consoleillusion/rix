@@ -4,15 +4,15 @@
 > **Last updated:** 2026-11-18
 > **See also:** [README](README)
 
-Terms used across the Rix design docs, with pointers to the doc that explains
+Terms used across the SekkOS design docs, with pointers to the doc that explains
 them in context.
 
 ## General
 
 | Term | Meaning |
 | --- | --- |
-| **Rix** | The NixOS-based operating system described here. |
-| **Rix Settings** | The planned GUI frontend for configuring the system without writing Nix. See [`user-experience`](user-experience). |
+| **SekkOS** | The NixOS-based operating system described here. |
+| **SekkOS Settings** | The planned GUI frontend for configuring the system without writing Nix. See [`user-experience`](user-experience). |
 | **Live image / ISO** | Bootable installer medium with a Plasma 6 live session. |
 | **Source of truth** | These design docs; code changes must keep them in sync. See [`README`](README). |
 
@@ -20,7 +20,7 @@ them in context.
 
 | Term | Meaning |
 | --- | --- |
-| **Nix** | The functional package manager and language underpinning Rix. |
+| **Nix** | The functional package manager and language underpinning SekkOS. |
 | **NixOS** | A Linux distribution configured declaratively through Nix modules. |
 | **Flake** | A versioned, hermetic project input/output description with declared inputs. |
 | **`flake.lock`** | Lock file pinning exact input revisions and hashes; committed on installed systems. |
@@ -29,8 +29,8 @@ them in context.
 | **Garbage collection** | Removal of unreferenced store paths and old generations, bounded by retention policy. |
 | **Module** | A NixOS configuration unit declaring options and implementing behaviour. |
 | **Atomic upgrade** | Building a complete new generation and switching to it in one step; failures leave the old one intact. |
-| **Rollback** | Returning to a previous generation from the boot menu or Rix Settings. |
-| **Unfree software** | Packages with non-free licences; opt-in in Rix. |
+| **Rollback** | Returning to a previous generation from the boot menu or SekkOS Settings. |
+| **Unfree software** | Packages with non-free licences; opt-in in SekkOS. |
 | **Calamares** | The graphical installer currently used by the live ISO. |
 | **Icicle** | An alternative installer from Snowfall; under evaluation, not adopted. |
 
@@ -53,13 +53,13 @@ them in context.
 
 | Term | Meaning |
 | --- | --- |
-| **DuckPAM** | Rix's PAM module that unlocks a post-quantum identity with the login password. See [`duckpam`](duckpam). |
+| **DuckPAM** | SekkOS's PAM module that unlocks a post-quantum identity with the login password. See [`duckpam`](duckpam). |
 | **Duckling** | A configured command pair that receives a decapsulated secret at login. |
-| **NTRU** | A lattice-based post-quantum public-key cryptosystem; Rix uses NTRU-HPS-2048-509. |
+| **NTRU** | A lattice-based post-quantum public-key cryptosystem; SekkOS uses NTRU-HPS-2048-509. |
 | **KEM** | Key Encapsulation Mechanism; used to establish shared secrets. |
 | **Argon2** | Password-based key derivation function used to derive the key that encrypts the private key. |
 | **AES-256-GCM** | Authenticated symmetric encryption used for the stored private key. |
-| **Root identity** | The DuckPAM public key that identifies a user across Rix services. |
+| **Root identity** | The DuckPAM public key that identifies a user across SekkOS services. |
 | **Fingerprint / safety number** | Human-checkable representation of a public key. |
 | **`duckshadow`** | `/etc/duckshadow`, the encrypted key store. |
 | **`ducklings`** | `/etc/ducklings`, the configuration of duckling commands. |
@@ -70,7 +70,7 @@ them in context.
 
 | Term | Meaning |
 | --- | --- |
-| **DuckNet** | Rix's relationship-based networking layer built on Netmaker and WireGuard. See [`ducknet`](ducknet). |
+| **DuckNet** | SekkOS's relationship-based networking layer built on Netmaker and WireGuard. See [`ducknet`](ducknet). |
 | **WireGuard** | A modern VPN protocol providing encrypted point-to-point tunnels. |
 | **Netmaker** | Software used to manage WireGuard meshes; self-hosted by the user or group. |
 | **Controller** | The Netmaker control plane; distributes configuration, not content. |

@@ -1,8 +1,8 @@
-# Rix branding for Calamares. Strings here are what the installer shows.
+# SekkOS branding for Calamares. Strings here are what the installer shows.
 # Keep the product name in sync with `system.nixos.distroName` in
 # modules/common.nix.
 ---
-componentName: rix
+componentName: sekkos
 
 ### WELCOME / OVERALL WORDING
 welcomeStyleCalamares: false
@@ -19,28 +19,28 @@ navigation: widget
 
 ### STRINGS
 strings:
-    productName: "Rix"
-    shortProductName: "Rix"
+    productName: "SekkOS"
+    shortProductName: "SekkOS"
     version: "26.05"
     shortVersion: "26.05"
-    versionedName: "Rix 26.05"
-    shortVersionedName: "Rix"
-    bootloaderEntryName: "Rix"
-    # TODO: point these at real Rix sites.
-    productUrl: "https://example.org/rix"
-    supportUrl: "https://example.org/rix/support"
-    knownIssuesUrl: "https://example.org/rix/issues"
-    releaseNotesUrl: "https://example.org/rix/releases"
+    versionedName: "SekkOS 26.05"
+    shortVersionedName: "SekkOS"
+    bootloaderEntryName: "SekkOS"
+    # TODO: point these at real SekkOS sites.
+    productUrl: "https://example.org/sekkos"
+    supportUrl: "https://example.org/sekkos/support"
+    knownIssuesUrl: "https://example.org/sekkos/issues"
+    releaseNotesUrl: "https://example.org/sekkos/releases"
     donateUrl: ""
 
 ### IMAGES
 # Paths are relative to this branding directory. Images are scaled by
 # Calamares; SVGs are fine.
 images:
-    productIcon: "rix-mark.svg"
-    productLogo: "rix-mark.svg"
-    productWelcome: "rix-wordmark.svg"
-    # productBanner: "rix-banner.svg"
+    productIcon: "sekkos-mark.svg"
+    productLogo: "sekkos-mark.svg"
+    productWelcome: "sekkos-wordmark.svg"
+    # productBanner: "sekkos-banner.svg"
     # productWallpaper: "wallpaper.png"
 
 ### COLORS

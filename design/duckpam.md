@@ -4,7 +4,7 @@
 > **Last updated:** 2026-11-18
 > **See also:** [Threat model](threat-model), [Contacts](contacts), [Security defaults](security-defaults), [../duckpam](../duckpam)
 
-DuckPAM is Rix's authentication and identity layer. It turns a password into a
+DuckPAM is SekkOS's authentication and identity layer. It turns a password into a
 post-quantum cryptographic identity at login, and uses that identity to deliver
 application secrets without asking the user to manage keys by hand.
 
@@ -140,7 +140,7 @@ The user configures this at first login; the default is recovery codes.
 - Enabling this is a deliberate choice: it involves other people and exposes
   that they are part of the user's recovery set.
 
-Rix operates **no escrow**. If both options are lost, the identity and data it
+SekkOS operates **no escrow**. If both options are lost, the identity and data it
 protects are unrecoverable; the installer and wizard must state this clearly.
 
 ## Security considerations
@@ -161,7 +161,7 @@ protects are unrecoverable; the installer and wizard must state this clearly.
 | Component | Integration |
 | --- | --- |
 | Display manager / PAM | Stack DuckPAM with system authentication. |
-| Rix Settings | Identity fingerprint, duckling management, recovery configuration. |
+| SekkOS Settings | Identity fingerprint, duckling management, recovery configuration. |
 | Contacts | Public-key identity, verification, trusted-contacts recovery. |
 | App deployment | Per-app secrets injected at start; no credentials in app images. |
 | Auditing | Login and recovery events visible to the user and group admins. |

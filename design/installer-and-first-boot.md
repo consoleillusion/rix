@@ -15,9 +15,9 @@ user, auto-login, networking, hardware scanning, Plasma 6 and
 [`../modules/calamares.nix`](../modules/calamares.nix) overrides
 `calamares-nixos-extensions` to:
 
-- install the Rix branding from
-  [`../calamares/branding/rix/`](../calamares/branding/rix/);
-- switch `settings.conf` to `branding: rix`;
+- install the SekkOS branding from
+  [`../calamares/branding/sekkos/`](../calamares/branding/sekkos/);
+- switch `settings.conf` to `branding: sekkos`;
 - replace `packagechooser.conf` with a Plasma-first chooser (ids `plasma6` and
   `""` must stay in sync with upstream `main.py`);
 - apply
@@ -50,7 +50,7 @@ from the first rebuild. This is a known, documented limitation in
    ([`ducknet`](ducknet)).
 8. **Desktop choice.** Plasma 6 default, minimal console alternative.
 9. **Install.** `nixos-install` writes `configuration.nix` and `flake.nix`
-   with Rix branding; the first boot entry is created.
+   with SekkOS branding; the first boot entry is created.
 10. **Finish.** Reboot prompt with a reminder to store the recovery key.
 
 ## First-boot wizard (Design)
@@ -72,9 +72,9 @@ installation.
 ## Installer validation checklist
 
 - ISO boots on BIOS and UEFI, x86_64 and aarch64.
-- Calamares starts and uses Rix branding (no upstream NixOS artwork).
+- Calamares starts and uses SekkOS branding (no upstream NixOS artwork).
 - Package chooser offers Plasma 6 and minimal system with working ids.
-- Generated `configuration.nix` contains the Rix identity block.
+- Generated `configuration.nix` contains the SekkOS identity block.
 - Generated `flake.nix` contains the correct release branch and target system.
 - Patch applies cleanly to the pinned nixpkgs (`patch --dry-run` in CI).
 - LUKS unlock works with both passphrase and recovery key.
@@ -87,5 +87,5 @@ SnowflakeOS has related goals but slower development; Icicle
 (<https://github.com/snowfallorg/icicle>) may offer a nicer installation
 experience. Replacing Calamares is **not** decided. Evaluate against: disk
 encryption setup, flake-aware config generation, aarch64 support, branding,
-maintenance effort, and the ability to reuse the Rix GUI settings components.
+maintenance effort, and the ability to reuse the SekkOS GUI settings components.
 The decision lives in [`open-questions`](open-questions).

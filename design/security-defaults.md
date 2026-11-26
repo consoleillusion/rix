@@ -4,7 +4,7 @@
 > **Last updated:** 2026-11-18
 > **See also:** [Threat model](threat-model), [Installer and first boot](installer-and-first-boot), [Stability and updates](stability-and-updates)
 
-This is the concrete list of out-of-box security settings for an installed Rix
+This is the concrete list of out-of-box security settings for an installed SekkOS
 system. `Current` means the behaviour exists in this repository; `Design`
 means it is the agreed target. Every default has a rationale and an explicit
 escape hatch so that security does not become a trap.
@@ -74,4 +74,4 @@ Each default needs a test in CI or the release checklist:
 - firewall: unsolicited inbound port is closed out of the box;
 - updates: a deliberately broken generation rolls back;
 - secrets: `grep` of a built closure finds no test secret;
-- telemetry: no outbound connection to Rix-controlled endpoints on a fresh boot.
+- telemetry: no outbound connection to SekkOS-controlled endpoints on a fresh boot.

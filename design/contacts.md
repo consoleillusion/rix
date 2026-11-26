@@ -4,7 +4,7 @@
 > **Last updated:** 2026-11-18
 > **See also:** [Overview](../contacts), [DuckPAM](duckpam), [DuckNet](ducknet), [File sharing](file-sharing)
 
-Contacts is Rix's relationship layer: people and groups are first-class
+Contacts is SekkOS's relationship layer: people and groups are first-class
 entities that drive network, file and application access. It is the user-facing
 implementation of the vision in [`../contacts`](../contacts).
 
@@ -13,7 +13,7 @@ implementation of the vision in [`../contacts`](../contacts).
 - A familiar, Telegram-like address book for individuals and organisations.
 - Groups are real objects with their own resources, not just labels.
 - One identity model shared by authentication, networking, sharing and apps.
-- Local-first: no Rix-operated directory is required.
+- Local-first: no SekkOS-operated directory is required.
 - Metadata-minimising: public keys, not real-world identities, are the wire
   identifiers.
 

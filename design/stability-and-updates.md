@@ -4,7 +4,7 @@
 > **Last updated:** 2026-11-18
 > **See also:** [Release and support](release-and-support), [Security defaults](security-defaults), [Architecture](architecture)
 
-Rix promises that a normal day of use does not break the machine, and that a
+SekkOS promises that a normal day of use does not break the machine, and that a
 bad change can be undone in seconds. This document defines the update and
 rollback model that delivers that promise.
 
@@ -16,19 +16,19 @@ rollback model that delivers that promise.
   new closure instead of mutating files in place.
 - Garbage collection removes unreferenced generations explicitly.
 - `nixos-rebuild switch --rollback` and the boot menu provide recovery paths.
-- `system.autoUpgrade` exists in nixpkgs and is disabled by default; Rix turns
+- `system.autoUpgrade` exists in nixpkgs and is disabled by default; SekkOS turns
   it on with a controlled policy.
 
 ## Update policy (Design)
 
 | Policy | Value |
 | --- | --- |
-| Channel | Track the Rix release branch pinned to a stable `nixos-<release>` (currently `nixos-26.05`). |
+| Channel | Track the SekkOS release branch pinned to a stable `nixos-<release>` (currently `nixos-26.05`). |
 | Default behaviour | Check for updates daily; download and build them automatically; apply at next boot. |
 | User notification | Clear notification: "Updates ready — restart to apply", with a one-click reboot. |
 | Within-release updates | Automatic, including security fixes. |
 | Major release upgrades | Opt-in, with release notes and a pre-upgrade check. |
-| Rollback | Always available from the boot menu and from Rix Settings; automatic on failed boot. |
+| Rollback | Always available from the boot menu and from SekkOS Settings; automatic on failed boot. |
 | Pause control | User can pause, schedule or switch to manual updates in the GUI. |
 | Generation retention | Keep at least the last 10 successful generations and anything younger than 30 days. |
 | Garbage collection | Automatic, but never removes a generation still referenced by a boot entry or within the retention window. |
@@ -60,7 +60,7 @@ A generation is marked successful only after the desktop session starts and a
 small set of health checks pass (key services active, no crash loop on critical
 units, disk readable). If the machine fails to reach that state within a
 configured window after an update boot, the bootloader falls back to the last
-known-good generation and Rix Settings shows a plain-language report.
+known-good generation and SekkOS Settings shows a plain-language report.
 
 This is intentionally conservative: a false rollback is annoying, a missed
 failed update can strand a non-technical user.
@@ -82,7 +82,7 @@ into a release.
 
 ## Configuration stability rules
 
-1. Rix module option names are part of the public interface for a release;
+1. SekkOS module option names are part of the public interface for a release;
    renames require a compatibility alias for the whole support window.
 2. The GUI settings schema is versioned. Upgrades migrate old settings rather
    than discarding them.

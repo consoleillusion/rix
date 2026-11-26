@@ -1,9 +1,9 @@
-# Rix
+# SekkOS
 
-Rix is a NixOS-based operating system. This repository builds its **live
+SekkOS is a NixOS-based operating system. This repository builds its **live
 installer**: a bootable ISO with a KDE Plasma 6 live session and the
 [Calamares](https://calamares.io/) graphical installer, preconfigured to
-install a Plasma 6 Rix system.
+install a Plasma 6 SekkOS system.
 
 The scaffold targets `x86_64-linux` and `aarch64-linux`.
 
@@ -11,11 +11,11 @@ The scaffold targets `x86_64-linux` and `aarch64-linux`.
 
 - A graphical live ISO that boots straight into Plasma 6 and auto-starts the
   installer.
-- Rix branding for Calamares (logo, wordmark, colours, slideshow, welcome
+- SekkOS branding for Calamares (logo, wordmark, colours, slideshow, welcome
   text) and for the live system's `/etc/os-release` and GRUB entry.
 - A Plasma-first desktop chooser (Plasma 6 or a minimal console system).
 - A small patch so the `configuration.nix` written by the installer carries
-  the Rix identity into the installed system (`ID=rix`, `ID_LIKE=nixos`) and
+  the SekkOS identity into the installed system (`ID=sekkos`, `ID_LIKE=nixos`) and
   ships a `flake.nix`, so the installed system is managed with flakes from the
   first rebuild onward.
 - Flake outputs for both architectures, plus ISO filename/label branding.
@@ -24,12 +24,12 @@ The scaffold targets `x86_64-linux` and `aarch64-linux`.
 
 | Path | Purpose |
 | --- | --- |
-| `flake.nix` | Pins nixpkgs, builds `nixosConfigurations.rix-live-*` and ISO packages. |
+| `flake.nix` | Pins nixpkgs, builds `nixosConfigurations.sekkos-live-*` and ISO packages. |
 | `profiles/live.nix` | Pulls in NixOS's upstream `installation-cd-graphical-calamares-plasma6` image. |
 | `modules/common.nix` | Distro identity (`/etc/os-release`), flakes, unfree policy. Shared with installed systems. |
 | `modules/live.nix` | ISO name/label, console branding, live hostname and MOTD. |
 | `modules/calamares.nix` | Overrides `calamares-nixos-extensions`: branding, desktop chooser, install-time patch. |
-| `calamares/branding/rix/` | `branding.desc`, `show.qml`, SVGs used by the installer UI. |
+| `calamares/branding/sekkos/` | `branding.desc`, `show.qml`, SVGs used by the installer UI. |
 | `calamares/patches/` | Patch applied to Calamares' generated `configuration.nix` and `flake.nix`. |
 | `docs/tvix.md` | Why Tvix is not used yet, and what it would take. |
 
@@ -53,8 +53,8 @@ $ nix build                # packages.<system>.default, same as .#iso
 ```
 
 The ISO filename looks like
-`rix-live-26.05.<date>.<rev>-x86_64-linux.iso`, and its label is
-`RIX_LIVE_26.05_x86_64` (used by stage-1 to find the medium).
+`sekkos-live-26.05.<date>.<rev>-x86_64-linux.iso`, and its label is
+`SEKKOS_LIVE_26.05_x86_64` (used by stage-1 to find the medium).
 
 ### Building for aarch64
 
@@ -74,7 +74,7 @@ remote `nix.buildMachines` entry is strongly recommended.
 ```console
 $ nix run nixpkgs#qemu -- \
     -enable-kvm -m 4096 -smp 4 \
-    -drive file=result/iso/rix-live-*.iso,media=cdrom,readonly=on \
+    -drive file=result/iso/sekkos-live-*.iso,media=cdrom,readonly=on \
     -boot d
 ```
 
@@ -86,7 +86,7 @@ the aarch64 ISO.
 
 ```console
 $ lsblk                      # identify the target device, e.g. /dev/sdX
-$ sudo dd if=result/iso/rix-live-*.iso of=/dev/sdX \
+$ sudo dd if=result/iso/sekkos-live-*.iso of=/dev/sdX \
     bs=4M status=progress oflag=sync
 ```
 
@@ -101,12 +101,12 @@ and UEFI systems.
    scanning, Plasma 6 and `calamares-nixos` (Calamares + NixOS modules).
 2. `modules/calamares.nix` adds an overlay that overrides the
    `calamares-nixos-extensions` package:
-   - the `rix` branding directory is installed into
-     `share/calamares/branding/rix`;
-   - `settings.conf` is switched from `branding: nixos` to `branding: rix`;
+   - the `sekkos` branding directory is installed into
+     `share/calamares/branding/sekkos`;
+   - `settings.conf` is switched from `branding: nixos` to `branding: sekkos`;
    - `packagechooser.conf` is replaced with a Plasma-first chooser;
    - `lib/calamares/modules/nixos/main.py` receives a patch that adds the
-     Rix block to the generated `configuration.nix` and writes a matching
+     SekkOS block to the generated `configuration.nix` and writes a matching
      `flake.nix` for the installed system.
 3. `nixos-install` runs from the live medium using the same pinned nixpkgs
    that built the ISO, then the installer finishes with the usual Calamares
@@ -131,12 +131,12 @@ git.
 - `modules/common.nix` — `system.nixos.distroName`, `distroId`, vendor
   fields and `ID_LIKE`.
 - `modules/live.nix` — hostname, ISO base name, volume label, console text.
-- `calamares/branding/rix/branding.desc` — installer strings (product name,
+- `calamares/branding/sekkos/branding.desc` — installer strings (product name,
   version, URLs) and colours.
 
 ### Installer artwork
 
-Drop replacements into `calamares/branding/rix/`. PNG, JPEG and SVG all work.
+Drop replacements into `calamares/branding/sekkos/`. PNG, JPEG and SVG all work.
 `productLogo` should be square; `productWelcome` is shown on the welcome page.
 Set `productWallpaper`/`productBanner` in `branding.desc` when you have them.
 `show.qml` is the installation progress slideshow (Calamares slideshow API 2).
@@ -156,7 +156,7 @@ that upstream still supports those ids.
 $ nix flake update nixpkgs
 ```
 
-Then update the version strings in `calamares/branding/rix/branding.desc`
+Then update the version strings in `calamares/branding/sekkos/branding.desc`
 and rebuild.
 
 ### Installed-system configuration
@@ -168,7 +168,7 @@ and reviewable: it brands the generated `configuration.nix` and writes a
 loudly at the `patch` step. Regenerate it against the new upstream file:
 
 ```console
-$ nixpkgs=$(nix eval --raw .#nixosConfigurations.rix-live-x86_64-linux.pkgs.path)
+$ nixpkgs=$(nix eval --raw .#nixosConfigurations.sekkos-live-x86_64-linux.pkgs.path)
 $ cp "$nixpkgs/pkgs/by-name/ca/calamares-nixos-extensions/src/modules/nixos/main.py" /tmp/main.py
 # edit /tmp/main.py, then diff -u --label a/main.py --label b/main.py ...
 ```

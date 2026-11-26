@@ -1,4 +1,4 @@
-# Tvix status and why Rix does not use it (yet)
+# Tvix status and why SekkOS does not use it (yet)
 
 Tvix is TVL's Rust implementation of the Nix language and package manager. It
 is an interesting long-term foundation for a Nix-based OS, but it cannot drive
@@ -32,7 +32,7 @@ Calamares' NixOS module is not just an evaluator client. It runs:
   database, `<nixpkgs>` in `NIX_PATH`, and NixOS activation scripts,
 - package builds through the host Nix daemon/store.
 
-Rix additionally asks for flakes, which Tvix does not implement. Replacing Nix
+SekkOS additionally asks for flakes, which Tvix does not implement. Replacing Nix
 here would mean writing a store/profile/activation layer plus a new installer
 backend before the first ISO could boot — with unstable upstream APIs and no
 packaged binary to test against. That is a research project, not a safe

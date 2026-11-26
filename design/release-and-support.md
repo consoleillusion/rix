@@ -4,16 +4,16 @@
 > **Last updated:** 2026-11-18
 > **See also:** [Stability and updates](stability-and-updates), [Overview](overview), [../flake.nix](../flake.nix)
 
-This document defines how Rix versions, builds, tests, publishes and supports
+This document defines how SekkOS versions, builds, tests, publishes and supports
 releases. It matches the current flake, which tracks `nixos-26.05`.
 
 ## Versioning
 
-- Rix versions mirror the NixOS release they are based on: **Rix 26.05** tracks
+- SekkOS versions mirror the NixOS release they are based on: **SekkOS 26.05** tracks
   `nixpkgs/nixos-26.05`.
-- ISO names follow `rix-live-<version>.<date>.<rev>-<system>.iso`, derived from
+- ISO names follow `sekkos-live-<version>.<date>.<rev>-<system>.iso`, derived from
   `config.system.nixos.label` in [`../modules/live.nix`](../modules/live.nix).
-- Volume labels stay short and stable, e.g. `RIX_LIVE_26.05_x86_64`, because
+- Volume labels stay short and stable, e.g. `SEKKOS_LIVE_26.05_x86_64`, because
   stage-1 uses them to find the medium.
 - Development builds may carry a `pre` suffix; the Calamares overlay maps that
   to the `nixos-unstable` branch in the generated flake
@@ -23,16 +23,16 @@ releases. It matches the current flake, which tracks `nixos-26.05`.
 
 | Channel | Purpose | Default? |
 | --- | --- | --- |
-| `stable` | Tested builds of the current Rix release. | Yes |
+| `stable` | Tested builds of the current SekkOS release. | Yes |
 | `testing` | Candidates for the next release; opt-in. | No |
 | `unstable` | Development snapshots; not for everyday machines. | No |
 
-Users switch channels in Rix Settings or by changing the flake input; the
+Users switch channels in SekkOS Settings or by changing the flake input; the
 change is an atomic rebuild and is reversible.
 
 ## Support window
 
-- A Rix release is supported until the next Rix release plus three months.
+- A SekkOS release is supported until the next SekkOS release plus three months.
 - Security fixes are backported to supported releases.
 - End-of-life is announced at least two months in advance, with a documented
   upgrade path.
@@ -55,7 +55,7 @@ change is an atomic rebuild and is reversible.
    regenerate against the new upstream file following
    [`../README`](../README).
 3. **Update version strings** in
-   [`../calamares/branding/rix/branding.desc`](../calamares/branding/rix/branding.desc).
+   [`../calamares/branding/sekkos/branding.desc`](../calamares/branding/sekkos/branding.desc).
 4. **Evaluate all systems** for x86_64 and aarch64.
 5. **Build both ISOs** in CI or on a configured builder.
 6. **Smoke test** boot (BIOS and UEFI), Plasma session, Calamares start,

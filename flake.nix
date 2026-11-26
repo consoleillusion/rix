@@ -1,5 +1,5 @@
 {
-  description = "Rix — a NixOS-based operating system with a Calamares live installer";
+  description = "SekkOS — a NixOS-based operating system with a Calamares live installer";
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
 
@@ -13,7 +13,7 @@
         "aarch64-linux"
       ];
 
-      configurationName = system: "rix-live-${system}";
+      configurationName = system: "sekkos-live-${system}";
 
       mkLiveIso =
         system:

@@ -1,15 +1,15 @@
-# Settings shared by the live ISO and by Rix systems after installation.
+# Settings shared by the live ISO and by SekkOS systems after installation.
 { lib, ... }:
 {
   # Distro identity. This feeds /etc/os-release, the GRUB menu entry and
   # anything else that asks NixOS what it is.
   system.nixos = {
-    distroName = "Rix";
-    distroId = "rix";
-    vendorName = "Rix";
-    vendorId = "rix";
+    distroName = "SekkOS";
+    distroId = "sekkos";
+    vendorName = "SekkOS";
+    vendorId = "sekkos";
 
-    # Rix is a NixOS-based OS. Advertise that so tools which special-case
+    # SekkOS is a NixOS-based OS. Advertise that so tools which special-case
     # NixOS (installers, drivers, documentation) keep working.
     extraOSReleaseArgs.ID_LIKE = "nixos";
   };

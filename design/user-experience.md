@@ -4,7 +4,7 @@
 > **Last updated:** 2026-11-18
 > **See also:** [Principles](principles), [Architecture](architecture), [Installer and first boot](installer-and-first-boot)
 
-Rix is for people who want a computer that simply works: friends and family,
+SekkOS is for people who want a computer that simply works: friends and family,
 privacy-aware individuals and small groups. The benchmark is a modern Windows
 desktop, without the rough edges of a bare NixOS or Arch installation.
 
@@ -45,7 +45,7 @@ desktop, without the rough edges of a bare NixOS or Arch installation.
 - Notifications show group activity, shares and update status.
 - Software Centre installs apps in one click, with a permission summary before
   install.
-- Rix Settings exposes system controls in sections: Users, Security, Network,
+- SekkOS Settings exposes system controls in sections: Users, Security, Network,
   Groups, Updates, Apps, Advanced.
 
 ### Adding a friend
@@ -78,12 +78,12 @@ desktop, without the rough edges of a bare NixOS or Arch installation.
 
 ## GUI configuration frontend (the central UX piece)
 
-The GUI is the primary way to configure Rix. Internally it is a thin, typed
+The GUI is the primary way to configure SekkOS. Internally it is a thin, typed
 frontend over Nix modules:
 
 ```
 User clicks a toggle
-  → typed setting in Rix settings model
+  → typed setting in SekkOS settings model
   → preview: "This will enable SSH and open port 22"
   → one nixos-rebuild transaction
   → boot entry + rollback button
@@ -106,7 +106,7 @@ See [`architecture`](architecture) for the stack and
 
 ## Writing and tone
 
-- Use "Rix" for the OS, "NixOS" when referring to the underlying system.
+- Use "SekkOS" for the OS, "NixOS" when referring to the underlying system.
 - Prefer short sentences and concrete verbs: "Share with Friends", not
   "Configure resource distribution policy".
 - Explain security in terms of the user's outcome: "Only people in Friends can
@@ -116,7 +116,7 @@ See [`architecture`](architecture) for the stack and
 
 ## Accessibility and inclusion
 
-- Full keyboard navigation and screen-reader support in Plasma and Rix apps.
+- Full keyboard navigation and screen-reader support in Plasma and SekkOS apps.
 - High-contrast themes, scalable text and remappable shortcuts.
 - Localisation-ready strings from the start; no English-only idioms in core
   flows.
@@ -124,7 +124,7 @@ See [`architecture`](architecture) for the stack and
 
 ## Installer notes
 
-The current live ISO uses Calamares with Rix branding. Icicle
+The current live ISO uses Calamares with SekkOS branding. Icicle
 (<https://github.com/snowfallorg/icicle>) has similar goals and may be a better
 long-term installer, but it must be evaluated against our requirements before
 replacing Calamares. The decision is tracked in

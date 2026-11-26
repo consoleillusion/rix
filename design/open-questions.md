@@ -52,17 +52,17 @@ message that says which question was resolved.
 | aarch64 build and test infrastructure | Native ARM builder vs emulated binfmt builds. | [`release-and-support`](release-and-support) |
 | Published security contact and advisory process | Private reporting channel, acknowledgement and disclosure policy. | [`release-and-support`](release-and-support) |
 | Replace placeholder URLs and finish branding artwork | `example.org` links, product banner/wallpaper, installer screenshots. | [`user-experience`](user-experience) |
-| Custom GRUB theme and Plymouth logo | Currently uses NixOS defaults with Rix distro name. | [`user-experience`](user-experience) |
+| Custom GRUB theme and Plymouth logo | Currently uses NixOS defaults with SekkOS distro name. | [`user-experience`](user-experience) |
 | Tvix re-evaluation trigger | Revisit when flake/fetcher support and a packaged build exist. See [`../docs/tvix`](../docs/tvix). | [`overview`](overview) |
 
 ## Decisions already made (do not re-litigate)
 
 These are recorded here for clarity; they are documented in their owning docs:
 
-- Rix tracks stable NixOS releases, not unstable by default.
+- SekkOS tracks stable NixOS releases, not unstable by default.
 - Flakes are enabled by default; installed systems get a generated `flake.nix`.
 - Updates are automatic, atomic and reversible, applied at next boot by default.
-- No telemetry or Rix-operated directory.
+- No telemetry or SekkOS-operated directory.
 - DuckPAM's NTRU key is the root identity.
 - Netmaker controller is user-/group-self-hosted by default.
 - Recovery codes are the default; trusted contacts are opt-in.

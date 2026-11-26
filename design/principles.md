@@ -23,7 +23,7 @@ Insecure options exist as explicit, labelled escape hatches
 
 ## Stability over novelty
 
-**Meaning.** Rix tracks stable NixOS releases and prioritises a boring,
+**Meaning.** SekkOS tracks stable NixOS releases and prioritises a boring,
 predictable desktop over being first with new packages.
 
 **Consequence.** Pin inputs in `flake.lock`; automatic updates stay within a
@@ -69,7 +69,7 @@ DuckPAM ([`threat-model`](threat-model)).
 
 ## The user controls the infrastructure
 
-**Meaning.** Rix does not require a Rix-operated service for identity,
+**Meaning.** SekkOS does not require a SekkOS-operated service for identity,
 networking or file sharing.
 
 **Consequence.** DuckNet's Netmaker controller is user- or group-self-hosted

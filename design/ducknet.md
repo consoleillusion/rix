@@ -4,7 +4,7 @@
 > **Last updated:** 2026-11-18
 > **See also:** [Contacts](contacts), [Threat model](threat-model), [../contacts](../contacts)
 
-DuckNet is Rix's networking layer. It turns group membership into private,
+DuckNet is SekkOS's networking layer. It turns group membership into private,
 encrypted connectivity using Netmaker to manage WireGuard meshes. Users manage
 relationships in Contacts; the network configures itself.
 
@@ -14,7 +14,7 @@ relationships in Contacts; the network configures itself.
 - Each group can have its own address space and network policy.
 - Traffic is end-to-end encrypted by WireGuard; the controller is not trusted
   with content.
-- The control plane is user- or group-controlled, not operated by Rix.
+- The control plane is user- or group-controlled, not operated by SekkOS.
 - Peers stay connected when the controller is temporarily unavailable.
 
 ## Architecture
@@ -39,12 +39,12 @@ Components:
 | WireGuard peers | Every device and shared service in the group. |
 | DNS / name resolution | Group-local names for services; no public DNS requirement. |
 | Relay | Optional fallback when direct peer-to-peer is blocked by NAT. |
-| Rix Settings / Contacts | User-facing control of networks and membership. |
+| SekkOS Settings / Contacts | User-facing control of networks and membership. |
 
 ## Control-plane trust
 
 The controller is **self-hosted by default**, as agreed in the design. This is
-a deliberate privacy decision: a Rix-operated controller would see the social
+a deliberate privacy decision: a SekkOS-operated controller would see the social
 graph of every group.
 
 Trust properties:
@@ -62,7 +62,7 @@ See [`threat-model`](threat-model), the network-eavesdropping and service-operat
 
 ## Setup experience
 
-1. In Rix Settings → Network, choose "Create a network" or "Join a network".
+1. In SekkOS Settings → Network, choose "Create a network" or "Join a network".
 2. Creating starts a self-hosted controller (local container or a server the
    group controls) with a guided setup wizard.
 3. Joining uses an invitation containing the controller endpoint, network id
@@ -102,7 +102,7 @@ No command-line Netmaker usage should be required in the normal path.
 | Contacts | Source of membership and invitations. |
 | File sharing | Direct peer connections and group storage reachability. |
 | App deployment | Group-scoped service access; apps get network policy from their group. |
-| Rix Settings | Network status, peer list, kill switch, relay settings. |
+| SekkOS Settings | Network status, peer list, kill switch, relay settings. |
 
 ## Failure modes
 
