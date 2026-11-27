@@ -1,4 +1,6 @@
-![sekkos](./sekkos.svg)
+<p align="center">
+<img src="./sekkkos.svg.svg" width="200" alt="sekkos logo"/>
+</p>
 
 # SekkOS
 
