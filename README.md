@@ -1,6 +1,6 @@
 <h1>
-<img src="./sekkos.svg" width="35" alt="sekkos logo" style="position: relative; top: .2rem;"/>
 SekkOS
+<img src="./sekkos.svg" width="35" alt="sekkos logo" style="position: relative; top: .3rem;"/>
 </h1>
 
 
