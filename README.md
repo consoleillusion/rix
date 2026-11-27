@@ -1,4 +1,4 @@
-<img src="./sekkos.svg" width="100" alt="sekkos logo"/>
+<img src="./sekkos2.svg" width="100" alt="sekkos logo"/>
 
 <h1>
 SekkOS
