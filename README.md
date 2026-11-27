@@ -1,3 +1,5 @@
+![sekkos](./sekkos.svg)
+
 # SekkOS
 
 SekkOS is a NixOS-based operating system. This repository builds its **live
