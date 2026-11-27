@@ -1,8 +1,8 @@
-<p align="center">
-<img src="./sekkos.svg" width="200" alt="sekkos logo"/>
-</p>
+<h1 align="center">
+<img src="./sekkos.svg" width="35" alt="sekkos logo" />
+SekkOS
+</h1>
 
-# SekkOS
 
 SekkOS is a NixOS-based operating system. This repository builds its **live
 installer**: a bootable ISO with a KDE Plasma 6 live session and the
