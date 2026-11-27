@@ -20,7 +20,7 @@
       --leg-gap: 16.8px;    /* gap between the left stem and the main stem                */
       --spin: 0deg;         /* rotates the whole mark                                     */
       --step: 120deg;       /* turn between one lambda and the next                       */
-      --color: #eeeeee;
+      --color: #999999;
       --bg: transparent;
 
       /* ---- Derived; normally leave alone ---- */
