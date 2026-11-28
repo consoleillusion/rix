@@ -2,7 +2,7 @@
 
 > **Status:** Mixed
 > **Last updated:** 2026-11-18
-> **See also:** [Threat model](threat-model), [Installer and first boot](installer-and-first-boot), [Stability and updates](stability-and-updates)
+> **See also:** [Threat model](threat-model.md), [Installer and first boot](../experience/installer-and-first-boot.md), [Stability and updates](stability-and-updates.md)
 
 This is the concrete list of out-of-box security settings for an installed SekkOS
 system. `Current` means the behaviour exists in this repository; `Design`
@@ -13,7 +13,7 @@ escape hatch so that security does not become a trap.
 
 | Area | Default | Status | Rationale | Escape hatch |
 | --- | --- | --- | --- | --- |
-| System foundation | NixOS with flakes and `nix-command` enabled | Current | Declarative, atomic, reproducible; see [`../modules/common.nix`](../modules/common.nix). | Disable in a custom module (not recommended). |
+| System foundation | NixOS with flakes and `nix-command` enabled | Current | Declarative, atomic, reproducible; see [`../../modules/common.nix`](../../modules/common.nix). | Disable in a custom module (not recommended). |
 | Input pinning | `flake.lock` committed with the installed system | Design (first rebuild creates it) | Reproducible known-good state. | `nix flake update --flake /etc/nixos`. |
 | Full-disk encryption | LUKS2 with user passphrase plus a generated recovery key | Design | Protects stolen/offline device; avoids single point of failure. | Installer offers "no encryption" with a clear warning. |
 | TPM2 | Auto-unlock only when a usable TPM2 is present; recovery key still required | Design | Removes daily friction without weakening recovery. | Disable TPM enrolment in installer. |
@@ -42,7 +42,7 @@ a recovery key alongside the passphrase and walks the user through storing it
 offline (print or write down). Where TPM2 is available it is used for
 transparent unlock, but the recovery key remains valid. Trusted-contacts
 recovery is deliberately **opt-in**, because it exposes the user's social graph
-to the recovery protocol; see [`duckpam`](duckpam).
+to the recovery protocol; see [`duckpam`](../identity/duckpam.md).
 
 ### Automatic updates without surprises
 
@@ -50,14 +50,14 @@ Updates are built and verified before they are applied. The default is to stage
 them for the next boot (`operation = "boot"` in NixOS terms) and notify the
 user, so an update never interrupts active work. A failed boot rolls back to
 the previous generation. Full policy in
-[`stability-and-updates`](stability-and-updates).
+[`stability-and-updates`](stability-and-updates.md).
 
 ### Application permissions
 
 The GUI presents permissions the way a phone does: camera, microphone, screen,
 files, network. Requests are scoped to an app identity and revocable. This is
 the main mechanism for the "malicious app" scenario in
-[`threat-model`](threat-model).
+[`threat-model`](threat-model.md).
 
 ### Remaining NixOS rough edges to hide
 

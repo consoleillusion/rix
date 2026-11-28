@@ -2,32 +2,32 @@
 
 > **Status:** Mixed
 > **Last updated:** 2026-11-18
-> **See also:** [Architecture](architecture), [Security defaults](security-defaults), [User experience](user-experience)
+> **See also:** [Architecture](../system-design/architecture.md), [Security defaults](../system-design/security-defaults.md), [User experience](user-experience.md)
 
 ## Current state (implemented)
 
-The live ISO is built from [`../flake.nix`](../flake.nix) and imports NixOS's
+The live ISO is built from [`../../flake.nix`](../../flake.nix) and imports NixOS's
 upstream `installation-cd-graphical-calamares-plasma6.nix` profile in
-[`../profiles/live.nix`](../profiles/live.nix). That supplies the live `nixos`
+[`../../profiles/live.nix`](../../profiles/live.nix). That supplies the live `nixos`
 user, auto-login, networking, hardware scanning, Plasma 6 and
 `calamares-nixos`.
 
-[`../modules/calamares.nix`](../modules/calamares.nix) overrides
+[`../../modules/calamares.nix`](../../modules/calamares.nix) overrides
 `calamares-nixos-extensions` to:
 
 - install the SekkOS branding from
-  [`../calamares/branding/sekkos/`](../calamares/branding/sekkos/);
+  [`../../calamares/branding/sekkos/`](../../calamares/branding/sekkos/);
 - switch `settings.conf` to `branding: sekkos`;
 - replace `packagechooser.conf` with a Plasma-first chooser (ids `plasma6` and
   `""` must stay in sync with upstream `main.py`);
 - apply
-  [`../calamares/patches/installed-config-branding.patch`](../calamares/patches/installed-config-branding.patch)
+  [`../../calamares/patches/installed-config-branding.patch`](../../calamares/patches/installed-config-branding.patch)
   to the generated `configuration.nix` and write a `flake.nix` for the
   installed system.
 
 The installed system is channel-based for the initial install and flake-based
 from the first rebuild. This is a known, documented limitation in
-[`../README`](../README).
+[`index`](../index.md).
 
 ## Target installation flow (Design)
 
@@ -44,10 +44,10 @@ from the first rebuild. This is a known, documented limitation in
    installed systems.
 6. **Identity.** Generate the DuckPAM NTRU keypair, encrypt it with the
    password, and store it in `/etc/duckshadow`. This becomes the user's root
-   identity ([`duckpam`](duckpam)).
+   identity ([`duckpam`](../identity/duckpam.md)).
 7. **Network.** Join an existing group network or create a new one; configure
    the self-hosted Netmaker controller if needed
-   ([`ducknet`](ducknet)).
+   ([`ducknet`](../services/ducknet.md)).
 8. **Desktop choice.** Plasma 6 default, minimal console alternative.
 9. **Install.** `nixos-install` writes `configuration.nix` and `flake.nix`
    with SekkOS branding; the first boot entry is created.
@@ -88,4 +88,4 @@ SnowflakeOS has related goals but slower development; Icicle
 experience. Replacing Calamares is **not** decided. Evaluate against: disk
 encryption setup, flake-aware config generation, aarch64 support, branding,
 maintenance effort, and the ability to reuse the SekkOS GUI settings components.
-The decision lives in [`open-questions`](open-questions).
+The decision lives in [`open-questions`](../operations/open-questions.md).

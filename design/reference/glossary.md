@@ -2,7 +2,7 @@
 
 > **Status:** Current
 > **Last updated:** 2026-11-18
-> **See also:** [README](README)
+> **See also:** [Design index](../index.md)
 
 Terms used across the SekkOS design docs, with pointers to the doc that explains
 them in context.
@@ -12,9 +12,9 @@ them in context.
 | Term | Meaning |
 | --- | --- |
 | **SekkOS** | The NixOS-based operating system described here. |
-| **SekkOS Settings** | The planned GUI frontend for configuring the system without writing Nix. See [`user-experience`](user-experience). |
+| **SekkOS Settings** | The planned GUI frontend for configuring the system without writing Nix. See [`user-experience`](../experience/user-experience.md). |
 | **Live image / ISO** | Bootable installer medium with a Plasma 6 live session. |
-| **Source of truth** | These design docs; code changes must keep them in sync. See [`README`](README). |
+| **Source of truth** | These design docs; code changes must keep them in sync. See [`index`](../index.md). |
 
 ## Nix and NixOS
 
@@ -46,14 +46,14 @@ them in context.
 | **Portal** | A mediated interface (e.g. file chooser) that grants specific access instead of blanket access. |
 | **Polkit** | Framework for granting administrative actions to unprivileged users with authentication. |
 | **Firewall** | Stateful host firewall; enabled by default in the pinned nixpkgs. |
-| **Threat model** | The assets, adversaries and mitigations in [`threat-model`](threat-model). |
+| **Threat model** | The assets, adversaries and mitigations in [`threat-model`](../system-design/threat-model.md). |
 | **Secure by default** | Security is on out of the box, with explicit, labelled escape hatches. |
 
 ## Identity and cryptography
 
 | Term | Meaning |
 | --- | --- |
-| **DuckPAM** | SekkOS's PAM module that unlocks a post-quantum identity with the login password. See [`duckpam`](duckpam). |
+| **DuckPAM** | SekkOS's PAM module that unlocks a post-quantum identity with the login password. See [`duckpam`](../identity/duckpam.md). |
 | **Duckling** | A configured command pair that receives a decapsulated secret at login. |
 | **NTRU** | A lattice-based post-quantum public-key cryptosystem; SekkOS uses NTRU-HPS-2048-509. |
 | **KEM** | Key Encapsulation Mechanism; used to establish shared secrets. |
@@ -70,7 +70,7 @@ them in context.
 
 | Term | Meaning |
 | --- | --- |
-| **DuckNet** | SekkOS's relationship-based networking layer built on Netmaker and WireGuard. See [`ducknet`](ducknet). |
+| **DuckNet** | SekkOS's relationship-based networking layer built on Netmaker and WireGuard. See [`ducknet`](../services/ducknet.md). |
 | **WireGuard** | A modern VPN protocol providing encrypted point-to-point tunnels. |
 | **Netmaker** | Software used to manage WireGuard meshes; self-hosted by the user or group. |
 | **Controller** | The Netmaker control plane; distributes configuration, not content. |

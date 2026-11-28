@@ -13,6 +13,10 @@ install a Plasma 6 SekkOS system.
 
 The scaffold targets `x86_64-linux` and `aarch64-linux`.
 
+The design source of truth lives in [`design/index.md`](design/index.md). It is
+organised into named parts labelled with roman numerals in the book, and
+compiles to one PDF with `npm run design:pdf`.
+
 ## What you get
 
 - A graphical live ISO that boots straight into Plasma 6 and auto-starts the
@@ -37,7 +41,8 @@ The scaffold targets `x86_64-linux` and `aarch64-linux`.
 | `modules/calamares.nix` | Overrides `calamares-nixos-extensions`: branding, desktop chooser, install-time patch. |
 | `calamares/branding/sekkos/` | `branding.desc`, `show.qml`, SVGs used by the installer UI. |
 | `calamares/patches/` | Patch applied to Calamares' generated `configuration.nix` and `flake.nix`. |
-| `docs/tvix.md` | Why Tvix is not used yet, and what it would take. |
+| `design/index.md` | Index to the design source of truth (parts, chapters, PDF build). |
+| `design/reference/tvix.md` | Why Tvix is not used yet, and what it would take. |
 
 ## Build the ISO
 
@@ -192,8 +197,8 @@ If you do not want to brand the installed system, delete the `patch` line in
   generated flake takes over from the first `nixos-rebuild`.
 - Tvix is deliberately not wired in: it is not production-ready, lacks flake
   and fetcher support, and is not packaged in nixpkgs. See
-  [docs/tvix.md](docs/tvix.md) for the full assessment and the path to a
-  Tvix-backed installer.
+  [design/reference/tvix.md](design/reference/tvix.md) for the full assessment and the path
+  to a Tvix-backed installer.
 - No custom GRUB theme or Plymouth logo yet. NixOS's boot menu already uses
   `system.nixos.distroName`; a branded theme can be added with
   `isoImage.grubTheme` and `boot.plymouth.logo`.

@@ -2,7 +2,7 @@
 
 > **Status:** Mixed
 > **Last updated:** 2026-11-18
-> **See also:** [Overview](overview), [Threat model](threat-model), [Installer and first boot](installer-and-first-boot)
+> **See also:** [Overview](../foundations/overview.md), [Threat model](threat-model.md), [Installer and first boot](../experience/installer-and-first-boot.md)
 
 This document describes the layers of SekkOS, from the flake that builds the ISO
 to the GUI settings layer and the SekkOS services. "Current" markers refer to code
@@ -43,28 +43,28 @@ flowchart TB
 
 ## Build and live image (Current)
 
-- [`../flake.nix`](../flake.nix) pins `nixpkgs` to `nixos-26.05` via
-  [`../flake.lock`](../flake.lock) and produces one `nixosSystem` per supported
+- [`../../flake.nix`](../../flake.nix) pins `nixpkgs` to `nixos-26.05` via
+  [`../../flake.lock`](../../flake.lock) and produces one `nixosSystem` per supported
   architecture.
-- [`../profiles/live.nix`](../profiles/live.nix) imports NixOS's
+- [`../../profiles/live.nix`](../../profiles/live.nix) imports NixOS's
   `installation-cd-graphical-calamares-plasma6.nix`, which supplies the live
   user, auto-login, hardware scanning, networking, Plasma 6 and
   `calamares-nixos`.
-- [`../modules/common.nix`](../modules/common.nix) sets distro identity,
+- [`../../modules/common.nix`](../../modules/common.nix) sets distro identity,
   enables flakes and the unified CLI, and defaults `allowUnfree` to `false`.
-- [`../modules/live.nix`](../modules/live.nix) sets the live hostname, ISO base
+- [`../../modules/live.nix`](../../modules/live.nix) sets the live hostname, ISO base
   name and volume label, and console branding.
-- [`../modules/calamares.nix`](../modules/calamares.nix) overrides
+- [`../../modules/calamares.nix`](../../modules/calamares.nix) overrides
   `calamares-nixos-extensions`: it installs the `sekkos` branding directory,
   switches `settings.conf` to `branding: sekkos`, replaces the package chooser with
   a Plasma-first one, and applies
-  [`../calamares/patches/installed-config-branding.patch`](../calamares/patches/installed-config-branding.patch)
+  [`../../calamares/patches/installed-config-branding.patch`](../../calamares/patches/installed-config-branding.patch)
   to the installer's `main.py`.
 
 The patch is deliberately small and context-sensitive: a nixpkgs update that
 changes `main.py` fails the build at the `patch` step. That is intentional — a
 silent no-op would be worse. See
-[`release-and-support`](release-and-support) for the release-time
+[`release-and-support`](../operations/release-and-support.md) for the release-time
 procedure.
 
 ## Installed system (Current + Design)
@@ -85,7 +85,7 @@ sudo nixos-rebuild switch --flake /etc/nixos#$(hostname)
 ```
 
 The first rebuild creates `flake.lock`; committing it is recommended so that a
-known-good state is recoverable. [`modules/common.nix`](../modules/common.nix)
+known-good state is recoverable. [`modules/common.nix`](../../modules/common.nix)
 is intended to be imported by installed systems as well, so identity and
 flakes stay consistent between the live and installed environments.
 
@@ -125,22 +125,22 @@ from it, group keys are wrapped to member public keys, and secrets needed by
 apps are delivered through the `ducklings` mechanism at login. Nothing secret
 is stored in the read-only `/nix/store`; secrets live in `/etc/duckshadow` and
 a protected user keyring. Full detail in
-[`duckpam`](duckpam).
+[`duckpam`](../identity/duckpam.md).
 
 ## Networking and data layer (Design)
 
 - **DuckNet** uses a user-controlled Netmaker controller to manage per-group
   WireGuard meshes. Traffic is end-to-end encrypted; the controller carries
-  membership metadata, not file contents. See [`ducknet`](ducknet).
+  membership metadata, not file contents. See [`ducknet`](../services/ducknet.md).
 - **Contacts** is the source of truth for people, groups and membership; it
   drives network, file and app permissions. See
-  [`contacts`](contacts).
+  [`contacts`](../identity/contacts.md).
 - **File sharing** uses Iroh for peer-to-peer transfer and replication, with
   group storage as an optional server-backed mode. Pinning records how many
-  independent copies exist. See [`file-sharing`](file-sharing).
+  independent copies exist. See [`file-sharing`](../services/file-sharing.md).
 - **App deployment** starts with declarative Nix modules and OCI containers,
   with scoped network access through DuckNet and secrets through DuckPAM. See
-  [`app-deployment`](app-deployment).
+  [`app-deployment`](../services/app-deployment.md).
 
 ## Key invariants
 
@@ -158,7 +158,7 @@ These must hold across all layers:
 
 ## Trust boundaries
 
-The full adversary model lives in [`threat-model`](threat-model).
+The full adversary model lives in [`threat-model`](threat-model.md).
 The architectural boundaries are: application ↔ OS, device ↔ network,
 user ↔ controller, user ↔ group members, and build inputs ↔ store. Each is
 enforced by a specific mechanism rather than by convention.

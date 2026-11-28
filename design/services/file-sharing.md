@@ -2,7 +2,7 @@
 
 > **Status:** Design
 > **Last updated:** 2026-11-18
-> **See also:** [Contacts](contacts), [DuckNet](ducknet), [Architecture](architecture), [../contacts](../contacts)
+> **See also:** [Contacts](../identity/contacts.md), [DuckNet](ducknet.md), [Architecture](../system-design/architecture.md), [Vision notes](../reference/contacts-vision.md)
 
 SekkOS file sharing is built into the file manager. Files can be shared with an
 individual or a group, replicated peer-to-peer with Iroh, stored on a group
@@ -40,7 +40,7 @@ storage copy for offline members.
 | `expiry` | Optional automatic revocation time. |
 
 Content keys are wrapped to recipient or group keys from Contacts
-([`contacts`](contacts)). Revocation expires tickets and re-wraps
+([`contacts`](../identity/contacts.md)). Revocation expires tickets and re-wraps
 keys for remaining recipients where feasible.
 
 ## Pinning and retention
@@ -54,7 +54,7 @@ keys for remaining recipients where feasible.
   keep or re-replicate it.
 
 Pinning turns group members' spare storage into a distributed backup mechanism,
-as described in [`../contacts`](../contacts).
+as described in [`contacts-vision`](../reference/contacts-vision.md).
 
 ## Security properties
 
@@ -78,12 +78,12 @@ as described in [`../contacts`](../contacts).
 3. Pick a mode; direct share sets an expiry; group storage picks a folder; P2P
    sets pinning preference.
 4. Recipient gets a notification through their configured channel
-   ([`contacts`](contacts)).
+   ([`contacts`](../identity/contacts.md)).
 5. Incoming shares appear in a dedicated view with sender identity and
    verification status.
 6. "Shared with" pane shows recipients, copy count, expiry and revoke button.
 
-Language follows [`user-experience`](user-experience): "Only
+Language follows [`user-experience`](../experience/user-experience.md): "Only
 members of Friends can open this", with advanced details one click away.
 
 ## Offline and failure behaviour
@@ -107,6 +107,6 @@ members of Friends can open this", with advanced details one click away.
 
 ## Open items
 
-Tracked in [`open-questions`](open-questions): large-file behaviour,
+Tracked in [`open-questions`](../operations/open-questions.md): large-file behaviour,
 mobile peers, deduplication across groups, and whether to ship a default group
 storage server package.

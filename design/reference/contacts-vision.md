@@ -114,4 +114,11 @@ Containers can have output modules, for network traffic or plain steams of data 
 
 Another potential advantage of putting all networks behind something like netmaker is that since all network activity is wireguard encrypted, im pretty sure you dont really need application level encryption nearly so much, or at all. For example, NFS is used as a network filesystem on linux, but wasnt built with security in mind, so its sorta old school. Its not considered very secure. But behind wireguard i think man-in-the-middle attacks cant really occur, so you can use old school protocols without worry, maybe even telnet would be fine.
 
+> **Superseded:** Wrapping traffic in WireGuard does not remove the need for
+> application-level encryption or authentication. Compromised group members,
+> relays, endpoints and group services remain in scope. See the
+> [threat model](../system-design/threat-model.md) and
+> [security defaults](../system-design/security-defaults.md) for the current position;
+> this paragraph is kept only as historical context.
+
 

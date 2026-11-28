@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-320 -320 640 640" width="640" height="640" role="img" aria-label="SekkOS three-lambda logo">
+  <!-- Static, monochrome rendition of ../../branding/sekkos.svg for print.
+       Geometry follows that file's lambda definitions; only the colour changes. -->
+  <g fill="#555555">
+    <g transform="rotate(0) translate(-80.973 -23.083)">
+      <rect x="-21.593" y="0" width="43.186" height="280.5" transform="skewX(30)"/>
+      <rect x="-87.986" y="0" width="109.579" height="37.4" transform="skewX(30)"/>
+      <rect x="107.157" y="243.1" width="66.393" height="37.4" transform="skewX(30)"/>
+      <rect x="107.157" y="243.1" width="66.393" height="37.4" transform="skewX(-30)"/>
+      <rect x="-11.604" y="243.1" width="66.393" height="37.4" transform="skewX(30)"/>
+      <rect x="-11.604" y="243.1" width="66.393" height="37.4" transform="skewX(-30)"/>
+      <rect x="0" y="0" width="43.186" height="86.05" transform="translate(49.681 157.05) rotate(60) skewX(30)"/>
+    </g>
+    <g transform="rotate(120) translate(-80.973 -23.083)">
+      <rect x="-21.593" y="0" width="43.186" height="280.5" transform="skewX(30)"/>
+      <rect x="-87.986" y="0" width="109.579" height="37.4" transform="skewX(30)"/>
+      <rect x="107.157" y="243.1" width="66.393" height="37.4" transform="skewX(30)"/>
+      <rect x="107.157" y="243.1" width="66.393" height="37.4" transform="skewX(-30)"/>
+      <rect x="-11.604" y="243.1" width="66.393" height="37.4" transform="skewX(30)"/>
+      <rect x="-11.604" y="243.1" width="66.393" height="37.4" transform="skewX(-30)"/>
+      <rect x="0" y="0" width="43.186" height="86.05" transform="translate(49.681 157.05) rotate(60) skewX(30)"/>
+    </g>
+    <g transform="rotate(240) translate(-80.973 -23.083)">
+      <rect x="-21.593" y="0" width="43.186" height="280.5" transform="skewX(30)"/>
+      <rect x="-87.986" y="0" width="109.579" height="37.4" transform="skewX(30)"/>
+      <rect x="107.157" y="243.1" width="66.393" height="37.4" transform="skewX(30)"/>
+      <rect x="107.157" y="243.1" width="66.393" height="37.4" transform="skewX(-30)"/>
+      <rect x="-11.604" y="243.1" width="66.393" height="37.4" transform="skewX(30)"/>
+      <rect x="-11.604" y="243.1" width="66.393" height="37.4" transform="skewX(-30)"/>
+      <rect x="0" y="0" width="43.186" height="86.05" transform="translate(49.681 157.05) rotate(60) skewX(30)"/>
+    </g>
+  </g>
+</svg>

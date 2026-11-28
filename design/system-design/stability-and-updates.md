@@ -2,7 +2,7 @@
 
 > **Status:** Mixed
 > **Last updated:** 2026-11-18
-> **See also:** [Release and support](release-and-support), [Security defaults](security-defaults), [Architecture](architecture)
+> **See also:** [Release and support](../operations/release-and-support.md), [Security defaults](security-defaults.md), [Architecture](architecture.md)
 
 SekkOS promises that a normal day of use does not break the machine, and that a
 bad change can be undone in seconds. This document defines the update and
@@ -77,7 +77,7 @@ failed update can strand a non-technical user.
 | aarch64 | Build and boot test on ARM hardware or emulation. |
 | Artifact integrity | Checksums published; signed artifacts planned. |
 
-See [`release-and-support`](release-and-support) for how these fit
+See [`release-and-support`](../operations/release-and-support.md) for how these fit
 into a release.
 
 ## Configuration stability rules
@@ -107,4 +107,4 @@ into a release.
 Automatic updates are a security control, not a convenience: they close the
 window between a fix being available and a user applying it. That is why the
 default is on, with rollback as the safety net rather than manual action as the
-default. See [`threat-model`](threat-model), the malicious-update scenario.
+default. See [`threat-model`](threat-model.md), the malicious-update scenario.

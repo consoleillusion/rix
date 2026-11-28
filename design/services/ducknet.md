@@ -2,7 +2,7 @@
 
 > **Status:** Design
 > **Last updated:** 2026-11-18
-> **See also:** [Contacts](contacts), [Threat model](threat-model), [../contacts](../contacts)
+> **See also:** [Contacts](../identity/contacts.md), [Threat model](../system-design/threat-model.md), [Vision notes](../reference/contacts-vision.md)
 
 DuckNet is SekkOS's networking layer. It turns group membership into private,
 encrypted connectivity using Netmaker to manage WireGuard meshes. Users manage
@@ -58,7 +58,7 @@ Trust properties:
 - Administrative actions on the controller are audited and visible to group
   admins.
 
-See [`threat-model`](threat-model), the network-eavesdropping and service-operator scenarios.
+See [`threat-model`](../system-design/threat-model.md), the network-eavesdropping and service-operator scenarios.
 
 ## Setup experience
 
@@ -69,7 +69,7 @@ See [`threat-model`](threat-model), the network-eavesdropping and service-operat
    and an authentication token; the group fingerprint is shown for
    verification.
 4. Adding a contact to a group in Contacts automatically provisions their peer
-   ([`contacts`](contacts)).
+   ([`contacts`](../identity/contacts.md)).
 5. The GUI shows peers, address spaces, connection status and data usage.
 
 No command-line Netmaker usage should be required in the normal path.
@@ -116,6 +116,6 @@ No command-line Netmaker usage should be required in the normal path.
 
 ## Open items
 
-Tracked in [`open-questions`](open-questions): mobile/roaming
+Tracked in [`open-questions`](../operations/open-questions.md): mobile/roaming
 peers, IPv6, controller deployment packaging, and whether to support hosted
 controllers as a clearly-labelled convenience option.
