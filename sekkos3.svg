@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="lambdas" viewBox="-320 -320 640 640" width="640" height="640" role="img" aria-label="Three lambdas arranged in a circle" style="&#10;">
+  <style>
+    @property --t          { syntax: "&lt;length&gt;"; inherits: true; initial-value: 37.4px; }
+    @property --h          { syntax: "&lt;length&gt;"; inherits: true; initial-value: 160px; }
+    @property --angle      { syntax: "&lt;angle&gt;";  inherits: true; initial-value: 60deg; }
+    @property --overhang   { syntax: "&lt;length&gt;"; inherits: true; initial-value: 22.4px; }
+    @property --head-gap   { syntax: "&lt;length&gt;"; inherits: true; initial-value: 16.8px; }
+    @property --leg-gap    { syntax: "&lt;length&gt;"; inherits: true; initial-value: 16.8px; }
+    @property --spin       { syntax: "&lt;angle&gt;";  inherits: true; initial-value: 0deg; }
+    @property --step       { syntax: "&lt;angle&gt;";  inherits: true; initial-value: 120deg; }
+
+    .lambdas {
+      --t: 37.4px;
+      --h: 160px;
+      --angle: 60deg;
+      --overhang: 22.4px;
+      --head-gap: 16.8px;
+      --leg-gap: 16.8px;
+      --spin: 0deg;
+      --step: 120deg;
+      --color: #999999;
+      --bg: transparent;
+
+      --k: calc(1 / tan(var(--angle)));
+      --w: calc(var(--t) / sin(var(--angle)));
+      --skew: calc(90deg - var(--angle));
+      --foot-mid: calc(var(--w) + 2 * var(--overhang));
+      --foot-top: calc(var(--foot-mid) - var(--k) * var(--t));
+      --head-len: calc(var(--foot-mid) + var(--k) * var(--t));
+      --leg-top: calc((var(--k) * var(--h) + var(--leg-gap) / sin(var(--angle))) / (2 * var(--k)));
+      --leg-x: calc(var(--k) * (var(--h) - var(--leg-top)) - var(--w) / 2);
+      --leg-cut: calc(var(--t) / sin(2 * var(--angle)));
+      --leg-len: calc((var(--h) - var(--w) / (2 * var(--k)) - var(--leg-top)) * 2 * cos(var(--angle)));
+      --leg-shear: calc(2 * var(--angle) - 90deg);
+      --ox: calc(var(--k) * var(--h) / -2);
+      --oy: calc((var(--t) + 2 * var(--head-gap) - var(--h) / 2) / 3);
+    }
+
+    
+    .mark { fill: var(--color); }
+    .copy { transform: rotate(calc(var(--spin) + var(--i) * var(--step))); }
+    .lambda { transform: translate(var(--ox), var(--oy)); }
+.bg { fill: var(--bg); x: -320px; y: -320px; width: 640px; height: 640px; }
+  
+
+    .main-stem {
+      width: var(--w); height: var(--h);
+      transform: translate(calc(var(--w) / -2), 0) skewX(var(--skew));
+    }
+    .head {
+      width: var(--head-len); height: var(--t);
+      transform: translate(calc(var(--w) / 2 - var(--head-len)), 0) skewX(var(--skew));
+    }
+    .foot { width: var(--foot-top); height: var(--t); }
+    .right-foot .a { transform: translate(calc(var(--k) * (var(--h) - var(--t)) - var(--foot-top) / 2), calc(var(--h) - var(--t))) skewX(var(--skew)); }
+    .right-foot .b { transform: translate(calc(var(--k) * (var(--h) - var(--t)) - var(--foot-top) / 2), calc(var(--h) - var(--t))) skewX(calc(-1 * var(--skew))); }
+    .left-foot  .a { transform: translate(calc(var(--k) * var(--t) - var(--foot-top) / 2), calc(var(--h) - var(--t))) skewX(var(--skew)); }
+    .left-foot  .b { transform: translate(calc(var(--k) * var(--t) - var(--foot-top) / 2), calc(var(--h) - var(--t))) skewX(calc(-1 * var(--skew))); }
+    .left-stem {
+      width: var(--leg-cut); height: var(--leg-len);
+      transform: translate(var(--leg-x), var(--leg-top)) rotate(var(--angle)) skewX(var(--leg-shear));
+    }
+  </style>
+
+  <defs>
+    <rect id="lambda-main-stem" class="part main-stem"/>
+    <rect id="lambda-left-stem" class="part left-stem"/>
+    <g id="lambda-left-foot" class="left-foot">
+      <rect class="part foot a"/><rect class="part foot b"/>
+    </g>
+    <g id="lambda-right-foot" class="right-foot">
+      <rect class="part foot a"/><rect class="part foot b"/>
+    </g>
+    <rect id="lambda-head" class="part head"/>
+
+    <g id="lambda-mark" class="lambda">
+      <use href="#lambda-left-foot" xlink:href="#lambda-left-foot"/>
+      <use href="#lambda-right-foot" xlink:href="#lambda-right-foot"/>
+      <use href="#lambda-left-stem" xlink:href="#lambda-left-stem"/>
+      <use href="#lambda-main-stem" xlink:href="#lambda-main-stem"/>
+      <use href="#lambda-head" xlink:href="#lambda-head"/>
+    </g>
+  </defs>
+
+  <rect class="bg"/>
+  <g class="mark">
+    <use class="copy" style="--i: 0" href="#lambda-mark" xlink:href="#lambda-mark"/>
+    <use class="copy" style="--i: 1" href="#lambda-mark" xlink:href="#lambda-mark"/>
+    <use class="copy" style="--i: 2;" href="#lambda-mark" xlink:href="#lambda-mark"/>
+  </g>
+</svg>
