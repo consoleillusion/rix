@@ -166,7 +166,7 @@
   #grid(
     columns: (1fr,),
     rows: (1fr, auto),
-    align(center + horizon)[#image("assets/sekkos-logo.svg", width: 8.5cm)],
+    align(center + horizon)[#image("assets/sekkos.svg", width: 8.5cm)],
     align(bottom + left)[
       #text(38pt, weight: "bold", fill: ink)[#title]
       #v(0.35em)
