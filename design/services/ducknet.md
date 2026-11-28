@@ -19,7 +19,7 @@ relationships in Contacts; the network configures itself.
 
 ## Architecture
 
-:::mermaid
+```mermaid
 flowchart TD
     A["Group (Contacts)"] -->|Membership| B["Netmaker Controller<br/>(Self-hosted)"]
     B -->|Issues peer configuration / keys| C["WireGuard Mesh<br/>(Per-group address space)"]
@@ -29,7 +29,7 @@ flowchart TD
     C --> F["Shared Service"]
 
     E -.->|Optional| G["Relay Fallback"]
-:::
+```
 
 Components:
 

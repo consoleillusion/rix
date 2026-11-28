@@ -10,7 +10,7 @@ in this repository; everything else is the target design.
 
 ## Layer view
 
-:::mermaid
+```mermaid
 flowchart TB
     subgraph Build["Build time (Current)"]
         F["flake.nix + flake.lock"] --> C["nixosConfigurations.sekkos-live-*"]
@@ -39,7 +39,7 @@ flowchart TB
         CONT --> FILE["File sharing (Iroh)"]
         CONT --> APP["Software centre<br/>Nix modules + containers"]
     end
-:::
+```
 
 ## Build and live image (Current)
 
@@ -91,7 +91,7 @@ flakes stay consistent between the live and installed environments.
 
 ## Configuration stack (Design)
 
-:::mermaid
+```mermaid
 flowchart LR
     A["User intent<br/>(GUI / CLI)"]
     B["SekkOS settings model"]
@@ -104,7 +104,7 @@ flowchart LR
     C --> D
     D --> E
     B -->|Preview / diff| C
-:::
+```
 
 1. **No hidden state.** Each GUI setting maps to a documented Nix option in a
    SekkOS module. The "advanced" view shows the generated snippet.

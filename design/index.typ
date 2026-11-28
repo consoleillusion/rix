@@ -2,19 +2,20 @@
 // The order comes from index.md: each "## Part ..." heading starts a part and
 // each linked chapter below it is rendered, in order, with cmarker.
 #import "@preview/cmarker:0.1.10"
+#import "@preview/merman:0.6.0": show-mermaid-blocks
 
 #let sans = ("Inter", "Inter Display", "Noto Sans", "DejaVu Sans", "Liberation Sans")
 #let mono = ("DejaVu Sans Mono", "Liberation Mono")
 
 // Dark palette. The logo is a monochrome rendition of branding/sekkos.svg in
-// assets/sekkos-logo.svg, tinted #555555 for this cover.
-#let bg = rgb("#111111")
+// assets/sekkos.png, rendered from the SVG at #555555 for this cover.
+#let bg = rgb("#222222")
 #let ink = rgb("#fafafa")
 #let muted = rgb("#9a9a9a")
 #let faint = rgb("#6f6f6f")
 #let rule-color = rgb("#303030")
-#let surface = rgb("#1a1a1a")
-#let accent = rgb("#b69cff")
+#let surface = rgb("#2a2a2a")
+#let accent = rgb("#8FB0AC")
 #let code-ink = rgb("#e5dcff")
 
 // Remove a leading YAML frontmatter block, if a chapter gains one later.
@@ -120,6 +121,14 @@
   if m == none { none } else { m.captures.at(0) }
 }
 
+// cmarker emits ```mermaid fences as raw blocks; render them as diagrams.
+#show raw.where(lang: "mermaid"): show-mermaid-blocks(
+  theme-preset: "editor",
+  theme-appearance: "dark",
+  background: "#151515",
+  width: 100%,
+)
+
 #set document(title: title, author: "SekkOS")
 #set text(font: sans, size: 10.5pt, lang: "en", fill: ink)
 #set par(justify: false, leading: 0.7em, spacing: 1.05em)
@@ -162,15 +171,15 @@
 
 // Cover: logo from ./assets (a monochrome copy of branding/sekkos.svg),
 // title anchored to the lower left.
-#page(paper: "a4", fill: bg, margin: (x: 2.4cm, y: 2.4cm), numbering: none)[
+#page(paper: "a4", fill: bg, margin: (x: 1.2cm, y: 1.2cm), numbering: none)[
   #grid(
     columns: (1fr,),
     rows: (1fr, auto),
-    align(center + horizon)[#image("assets/sekkos.svg", width: 8.5cm)],
+    align(center + horizon)[#image("assets/sekkos.png", width: 8.5cm)],
     align(bottom + left)[
-      #text(38pt, weight: "bold", fill: ink)[#title]
-      #v(0.35em)
-      #text(11pt, fill: muted)[Design source of truth · #datetime.today().display("[day] [month repr:long] [year]")]
+      #text(24pt, weight: "bold", fill: ink)[#title]
+      #v(0.25em)
+      #text(9pt, fill: muted)[Design source of truth · #datetime.today().display("[day] [month repr:long] [year]")]
     ],
   )
 ]
