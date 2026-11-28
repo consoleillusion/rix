@@ -1,5 +1,5 @@
 <p align="center">
-<img src="./design/assets/sekkos.svg" width="100" alt="sekkos logo"/>
+<img src="./design/assets/sekkos5.svg" width="100" alt="sekkos logo"/>
 </p>
 <h1>
 SekkOS
